@@ -35,8 +35,8 @@ to discover new FLOSS developers in our own city.
 So we used initialy the GitHub top-1000 generation script by Paul
 Miller \href{https://github.com/paulmillr/top-github-users} to achieve
 that, making small modifications to the source and creating our own
-version, which was eventually moved to a new repository:
-\href{https://github.com/JJ/github-city-rankings}. But this had
+version, which was eventually 
+\href{https://github.com/JJ/github-city-rankings}{moved to a new repository}. But this had
 several effects. First, as soon as the ranking was published some
 people contacted us and the first GitHub meetup in Granada took
 place. More modifications and changes were added and new data was
@@ -93,6 +93,76 @@ geographically based GitHub users.
 \section{GitHub city rankings, the tool}
 \label{sec:exp}
 
+It is quite unlikely that if you are reading this you do not know what
+is  \href{http://github.com}{GitHub}. GitHub is a web-based git
+repository that has a number of ``social'' features, including the
+declaration of a profile and {\tt @} mentions in commit messages and
+issues. The profile page includes information on the number of
+followers, as well as the repositories and the number of contributions
+every person has made during the last year. Besides this
+easily-scrapeable information, GitHub has a REST API that can be
+accessed from any language. 
+
+Some other web-based repos do have many of the characteristics, and,
+besides, are based in free software themselves, like
+Gitorious. However, the number of users of these repositories is quite
+small compared to GitHub, which has become the tool of choice for
+FLOSS developers. That is why GitHub was chosen, apart from the
+availability of tools to mine profile information. 
+
+The \href{https://github.com/paulmillr/top-github-users}{tool used initially, by Paul
+Miller} was
+written in CoffeeScript and designed for creating a ranking of the top
+1000 users with more than an (arbitrary) numbers of followers equal to
+256. The tool used the GitHub REST API to make requests, and saved
+them in a human-readable form in Markdown and also CSV and JSON. It
+was separated in three scripts that were called from a Makefile. Some
+utility functions were written in Node.js; the node.js module was
+called from several scripts.
+
+Our intention was to look for users in a particular location, that is,
+to limit them not by minimum number of users but for the location
+declared in the profile. Every run of the program required 10 API
+requests which is limited to 20 per hour, so we modified it so that it
+used authenticated requests, besides. Finally, we had to rearrange the
+whole code so that it counted the number of stars and could be
+filtered according to regular expressions, since the country a city or
+province is might be ambiguous (you know Toledo, Ohio, but there is
+also a Toledo in Spain). Besides, Markdown handling was kind of clumsy
+so it was moved to a template-based solution.
+
+One of the main problem we found in Spain was the ambiguity of the
+province name. Besides the fact that people write it in any of the
+official languages (Spanish and, in some cases, national languages
+like Basque or Catalan) and, well, sometimes with typos (with or
+without tildes), some people do not mention their province when
+writing their location. To make a long story short, we had to provide
+a configuration file (in JSON) which lists several possible names that
+might be used by people in a particular province; for instance, for
+Majorca we had to include this: {\tt "location":
+  ["Balears","Baleares","Palma de Mallorca"]}. This, of course,
+excludes those that simply do not care about listing their location,
+but more on this later on.
+
+The script is then run with a city name (if there is no particular
+configuration option, {\tt Madrid}, for instance) or a configuration
+file name {\tt granada}). This can be launched weekly, or simply at a
+particular moment or under request. 
+
+The results for each user list the number of followers, contributions,
+the number of stars his/her repositories have received, the longest
+and the current 
+contribution streak as well as the {\em predominant} language and
+avatar. Some of these metrics are shown in the Markdown rankings; for
+instance, see the 
+\href{https://github.com/JJ/top-github-users-data/blob/master/formatted/top-Madrid.md}{one for Madrid:}.
+
+Data is saved to a 
+\href{https://github.com/JJ/top-github-users-data/}{different repository} and is aggregated
+and processed using R and Perl scripts. All of them are included in
+the same repository. As part of our commitment to free/open science,
+all graphics and data were published as soon as they were produced in
+Twitter from my {\tt @jjmerelo} account. 
 
 \section{Conclusions}
 
