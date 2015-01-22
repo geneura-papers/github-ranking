@@ -1,6 +1,12 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage{hyperref}
+\usepackage{subfigure}
+
+<<setup, cache=FALSE,echo=FALSE>>=
+library("ggplot2")
+load(".RData")
+@ 
 
 \title{Github rankings and its impact on the local free software
   development community}
@@ -164,6 +170,44 @@ the same repository. As part of our commitment to free/open science,
 all graphics and data were published as soon as they were produced in
 Twitter from my {\tt @jjmerelo} account. 
 
+\section{Results and analysis}
+\label{sec:res}
+
+We reduced the search to the 20 most populated provinces in Spain, for
+which appropriate search strings and filters were created. All data
+was downloaded during January 2015, and is available from the already
+mentioned repo.  Aggregate data for these 20 provinces is shown in
+table \ref{tab:data}.
+
+\begin{table}[h]
+  \begin{tabular}{|r|c|c|c|c|c|c|}
+<<kable,results="asis",echo=FALSE>>=
+kable(top20.data)
+@
+\end{tabular}
+\caption{Raw aggregate measures for the 20 most populated provinces,
+  including the population (taken from the National Statistics
+  Institute), the number of users and their contributions, stars and
+  followers and the average number of contributions: contributions / users. }
+\label{tab:data}
+\end{table}
+
+The range of users shown in the table hovers around the hundreds, with
+the one in the biggest provincies (and cities) approaching
+1000. However, population and users/contributions are not directly
+related. 
+
+\begin{figure}[htb]
+  \centering
+<<byfollow, echo=FALSE, out.width='.49\\linewidth',fig.height=6, fig.subcap=c('Contributions', 'Users'),>>=
+ggplot(top20.data.bycontrib,aes(x=province,y=contributions)) + geom_bar(stat='identity')+xlab("Contributions")+ coord_flip()
+ggplot(top20.data.byuser,aes(x=province,y=users)) + geom_bar(stat='identity')+xlab("Contributions")+ coord_flip()
+@
+\caption{Provinces ranked by number of users}
+\label{fig:user:contrib}
+
+\end{figure}
+
 \section{Conclusions}
 
 \section{Acknowledgements}
@@ -175,20 +219,7 @@ the data used to create it can be downloaded from
 \href{http://geneura.wordpress.com}. 
   
 
-<<setup, cache=FALSE,echo=FALSE>>=
-library("ggplot2")
-load(".RData")
-@ 
 
-\begin{table}[h]
-  \begin{tabular}{r|c|c|c|c|c|}
-<<kable,results="asis",echo=FALSE>>=
-kable(top20.data)
-@
-\end{tabular}
-\caption{Raw aggregate measures for the 20 most populated provinces.}
-\label{tab:data}
-\end{table}
 
 
 \bibliographystyle{plain}
