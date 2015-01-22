@@ -68,13 +68,41 @@ conclusions.
 
 \section{State of the art}
 
+Geographically based community metrics do not seem to have arisen a
+lot of interest in the FLOSS metrics \cite{herraiz2009flossmetrics} community. Most efforts seem to
+be focused in creating tools for actually measuring repositories for
+activity; for instance, Laura Arjona describes the {\em Debian
+  Contributors} tool in \cite{arjona:debian} whose results are dumped
+to a website that includes information on the projects that every user
+has contributed and some other data such as how users are identified
+in the databases. 
+
+It is interesting to note that some models \cite{robles05} use the
+concept of stigmergy, that is, interaction using the environment, to
+model the dynamics of libre software projects; the mere existence of
+these tools can be a catalyzer of this interaction and the harbinger
+of new software projects. In fact, this seems to be what has happened
+in the community (or communities) under observation: the mere creation of
+a document that mentions many different users acts as a substrate that
+allows the creation and growth of the community through the stigmergy paradigm.
+
+Next we will briefly explain the tool that was designed to search for
+geographically based GitHub users.
+
+
+\section{GitHub city rankings, the tool}
+\label{sec:exp}
+
+
 \section{Conclusions}
 
 \section{Acknowledgements}
 
 This paper is part of the open science effort at the university of
 Granada. It has been written using knitr, and its source as well as
-the data used to create it can be downloaded from \href{https://github.com/geneura-papers/github-ranking}.
+the data used to create it can be downloaded from
+\href{https://github.com/geneura-papers/github-ranking}. It has been supported in part by GeNeura Team
+\href{http://geneura.wordpress.com}. 
   
 
 <<setup, cache=FALSE,echo=FALSE>>=
