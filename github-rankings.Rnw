@@ -3,12 +3,12 @@
 
 \title{Github rankings and its impact on the local free software
   development community}
-
+\author{JJ Merelo}
 \begin{document}
 \maketitle
 
 <<setup, cache=FALSE,echo=FALSE>>=
-library(ggplot2)
+library("ggplot2")
 load(".RData")
 @ 
 
