@@ -1,14 +1,14 @@
-load("~/repositorio/github-ranking/.RData")
+
 objects()
 #if you want to see if there is any correlation between two variables, you can generate a scatter plot.
 plot(top20.data)
 #Get the Log value of the contributions.
 datosContribLog<-log(top20.data$contributions)
 #Plot provinces vs Log(contributions)
-plot(top20.data$province, datosLog, main="Province vs Log(Contributions)")
+plot(top20.data$province, datosContribLog, main="Province vs Log(Contributions)")
 
 #Get the Log value of the contributions.
-datosContribLog<-Log(top20.data$contributions)
+datosContribLog<-log(top20.data$contributions)
 #Plot provinces vs Log(users)
 datosUsers<-top20.data$contributions
 datosUsersLog<-log(top20.data$users)
