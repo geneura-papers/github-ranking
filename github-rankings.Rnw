@@ -1,0 +1,25 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Github rankings and its impact on the local free software
+  development community}
+
+\begin{document}
+\maketitle
+
+<<setup, cache=FALSE,echo=FALSE>>=
+library(ggplot2)
+load(".RData")
+@ 
+
+\begin{table}[h]
+  \begin{tabular}{r|c|c|c|c|c|}
+<<kable,results="asis",echo=FALSE>>=
+kable(top20.data)
+@
+\end{tabular}
+\caption{Raw aggregate measures for the 20 most populated provinces.}
+\label{tab:data}
+\end{table}
+
+\end{document}
