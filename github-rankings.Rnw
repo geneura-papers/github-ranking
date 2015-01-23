@@ -276,6 +276,34 @@ kable(zipf.city)
 \label{tab:zipf}
 \end{table}
 
+This can be interpreted in a different way by plotting the Lorenz curve, which is the accumulated normalized sum of contributions for these six cities. This is shown in figure \ref{fig:lorenz}; this Lorenz curve tends to represent the inequality between those that contribute more and those that contribute less and is usually represented by the Gini index, which is shown in table \ref{tab:gini}
+
+\begin{figure}[htb]
+  \centering
+<<lorenz, echo=FALSE, fig.height=6, fig.width=8>>=
+ggplot()+geom_point(data=barcelona.data, aes(x=seq_along(contributions)/length(contributions), y=cumsum(sort(contributions))/sum(contributions),color='BCN'))+geom_point(data=zaragoza.data, aes(x=seq_along(contributions)/length(contributions), y=cumsum(sort(contributions))/sum(contributions),color='ZGZ'))+geom_point(data=madrid.data, aes(x=seq_along(contributions)/length(contributions), y=cumsum(sort(contributions))/sum(contributions),color='MAD'))+geom_point(data=granada.data, aes(x=seq_along(contributions)/length(contributions), y=cumsum(sort(contributions))/sum(contributions),color='GRX'))+geom_point(data=sevilla.data, aes(x=seq_along(contributions)/length(contributions), y=cumsum(sort(contributions))/sum(contributions),color='SVQ'))+geom_point(data=valencia.data, aes(x=seq_along(contributions)/length(contributions), y=cumsum(sort(contributions))/sum(contributions),color='VLC'))+xlab('rank')+ylab('contributions')+labs(color="City")
+@
+\caption{Lorenz graph, that is, accumulated number of contributions vs rank for the top 6 provinces in number of users and contributions: Madrid, Barcelona, Valencia, Granada, Sevilla, Zaragoza}
+\label{fig:lorenz}
+\end{figure}
+%
+\begin{table}[h]
+  \begin{tabular}{|r|c|c|}
+<<gini,echo=FALSE>>=
+library(ineq)
+gini.city <- data.frame(city='Madrid', gini= ineq(madrid.data$contributions,type='Gini'))
+gini.city <- rbind(gini.city,  data.frame(city='Granada', gini= ineq(granada.data$contributions,type='Gini')))
+gini.city <- rbind(gini.city,  data.frame(city='Zaragoza', gini= ineq(zaragoza.data$contributions,type='Gini')))
+gini.city <- rbind(gini.city,  data.frame(city='Sevilla', gini= ineq(sevilla.data$contributions,type='Gini')))
+gini.city <- rbind(gini.city,  data.frame(city='Barcelona', gini= ineq(barcelona.data$contributions,type='Gini')))
+gini.city <- rbind(gini.city,  data.frame(city='Valencia', gini= ineq(valencia.data$contributions,type='Gini')))
+
+kable(gini.city)
+@ 
+\end{tabular}
+\caption{Gini coefficients for all 6 ``big'' cities }
+\label{tab:gini}
+\end{table}
 \section{Conclusions}
 
 \section{Acknowledgements}
