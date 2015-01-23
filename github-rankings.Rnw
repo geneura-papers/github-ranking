@@ -359,7 +359,7 @@ tests, including Granada.
 \begin{figure}[htb]
   \centering
 <<impact, echo=FALSE, fig.height=6, fig.width=8>>=
-ggplot() + geom_line(data=malaga.evol.data, aes(x=seq_along(users), y=users,color='AGP')) +  geom_line(data=sevilla.evol.data, aes(x=seq_along(users),y=users,color='SVQ'))+  geom_line(data=granada.evol.data, aes(x=seq_along(users),y=users,color='GRX')) + xlab("Sequence")
+ggplot() + geom_line(data=malaga.evol.data, aes(x=seq_along(users), y=users,color='AGP')) +  geom_line(data=sevilla.evol.data, aes(x=seq_along(users),y=users,color='SVQ'))+  geom_line(data=granada.evol.data, aes(x=seq_along(users),y=users,color='GRX')) + xlab("Sequence")+labs(color="City")
 @
 \caption{Number of users in each ranking; every point indicates simply
 a new ranking and are not uniformly distributed in time.}

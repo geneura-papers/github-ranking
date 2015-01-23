@@ -3,6 +3,7 @@
 We add a new column to each dataset with the normaliced order (between 0 and 1) named "orderScaled" (I know its a bad-english name), using this expression for each datadaset:
 
 ```{r}
+	load("javacasm.RData")
 	spain.data$orderScaled <- seq_along(spain.data$contributions)/length(spain.data$contributions)
 ```
 
