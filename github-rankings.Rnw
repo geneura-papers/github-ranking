@@ -248,7 +248,6 @@ opt.f <- function(s) sum((log(p)-lzipf(s,length(p)))^2)
 opt <- optimize(opt.f,c(0.5,10))
 zipf.city <- rbind(zipf.city,data.frame(city='Granada',min=opt$minimum, obj=opt$objective))
 
-
 p<-valencia.data$contributions/sum(valencia.data$contributions)
 
 opt.f <- function(s) sum((log(p)-lzipf(s,length(p)))^2)
@@ -278,8 +277,14 @@ kable(zipf.city)
 \label{tab:zipf}
 \end{table}
 
-This can be interpreted in a different way by plotting the Lorenz curve, which is the accumulated normalized sum of contributions for these six cities. This is shown in figure \ref{fig:lorenz}; this Lorenz curve tends to represent the inequality between those that contribute more and those that contribute less and is usually represented by the Gini index, which is shown in table \ref{tab:gini}
-
+This can be interpreted in a different way by plotting the Lorenz
+curve, which is the accumulated normalized sum of contributions for
+these six cities. This is shown in figure \ref{fig:lorenz}; this
+Lorenz curve tends to represent the inequality between those that
+contribute more and those that contribute less and is usually
+represented by the Gini index, which is shown in table
+\ref{tab:gini}. 
+%
 \begin{figure}[htb]
   \centering
 <<lorenz, echo=FALSE, fig.height=6, fig.width=8>>=
@@ -306,6 +311,78 @@ kable(gini.city)
 \caption{Gini coefficients for all 6 ``big'' cities }
 \label{tab:gini}
 \end{table}
+
+The Gini coefficient measures {\em inequality} in the sense of {\em
+  share} of, in this case, contributions between those with the most
+contributions and those with the least. An index equal to 1 would mean
+a single person did all the contributions, while the rest did 0, and
+index equal to 0 would mean all users make the same number of
+contributions. The table \ref{tab:gini} ranks the cities from least
+equal (Madrid) to most equalitarian, Valencia. However, there is no
+big range of variation, hovering around 0.70, which is way over the
+inequality of the most inequal country in the world, the
+Seychelles. However, this is meaningless in absolute terms; in
+relative terms, it means roughly that the top contributors contribute
+roughly 70\% more than the bottom contributors, and that there is no
+big variation among the different cities/provinces. It is quite clear,
+however, that the contributions by the top contributor, as well as
+those made by the {\em average} one, are quite different from place to
+place. So we represent in figure \ref{fig:avg} the average number of
+contributions, that is, the number of contributions divided by the
+number of users. 
+%
+\begin{figure}[htb]
+  \centering
+<<avg, echo=FALSE, fig.height=6, fig.width=8>>=
+ggplot(top20.data.byavgcontrib,aes(x=province,y=avgcontrib)) + geom_bar(stat='identity')+coord_flip()+xlab("Contributions/# users")
+@
+\caption{Average number of contributions, sorted from top to bottom,
+  for the 20 provinces with the most habitants.}
+\label{fig:avg}
+\end{figure}
+
+Figure \ref{fig:avg} shows that average contributions have a bigger
+range than the Gini coefficient; Valencia is right in the middle,
+around 100; in fact, the top contributor ({\tt pakozm} has 1462
+contributions and 25\% have more than 100. In Madrid, however, the top
+10 have more than 2000 contributions and there are 200 users (25\%
+with more than 150), so that accounts for the bigger inequality. But
+productivity is highest in Madrid, Zaragoza and, once again, in
+Granada, if we consider productivity exclusively the number of
+contributions. 
+
+Finally, it is interesting to find out if the publication of these
+rankings had any kind of impact. This is shown in figure
+\ref{fig:impact} for the three cities for which we have the most
+tests, including Granada.
+%
+\begin{figure}[htb]
+  \centering
+<<impact, echo=FALSE, fig.height=6, fig.width=8>>=
+ggplot() + geom_line(data=malaga.evol.data, aes(x=seq_along(users), y=users,color='AGP')) +  geom_line(data=sevilla.evol.data, aes(x=seq_along(users),y=users,color='SVQ'))+  geom_line(data=granada.evol.data, aes(x=seq_along(users),y=users,color='GRX')) + xlab("Sequence")
+@
+\caption{Number of users in each ranking; every point indicates simply
+a new ranking and are not uniformly distributed in time.}
+\label{fig:impact}
+\end{figure}
+%
+The first time the census for Granada was published it included around
+140 users. A month (approximately) later, there were more than 180, a
+28\% increase, more or less the same than for Málaga and more than for
+Seville, where a small increase was noted. Take into account that this
+is not absolute number of users, but only {\em active} users; in fact,
+it might decrease due to some user becoming inactive (no contribution)
+in the last year (this happens in some of the cases in Granada). So,
+in general, it should be expected to go every which way, depending on
+the city. The fact that all cities whose rankings have been published
+have {\em increased} the number of active users after difussion,
+mainly in Twitter, might be an indication more users becoming active,
+more mentioning their city/province in their profile, or small
+competitions taking place locally to scale up the rankings if there is
+a chance to do so. All hypothesis are equally valid lacking other
+evidence, but we would say that at least some increase will be due to
+the fact that the rankings exist. 
+
 \section{Conclusions}
 
 \section{Acknowledgements}
