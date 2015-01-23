@@ -225,21 +225,21 @@ So let us look at the distribution of contributions and users looking for an exp
 <<zipfexp,echo=FALSE>>=
 #Taken from http://stats.stackexchange.com/questions/6780/how-to-calculate-zipfs-law-coefficient-from-a-set-of-top-frequencies
 
-p<-madrid.data$contributions/sum(madrid.data$contributions)
+p<-zaragoza.data$contributions/sum(zaragoza.data$contributions)
 
 lzipf <- function(s,N) -s*log(1:N)-log(sum(1/(1:N)^s))
 
 opt.f <- function(s) sum((log(p)-lzipf(s,length(p)))^2)
 
 opt <- optimize(opt.f,c(0.5,10))
-zipf.city <- data.frame(city='Madrid',min=opt$minimum, obj=opt$objective)
+zipf.city <- data.frame(city='Zaragoza',min=opt$minimum, obj=opt$objective)
 
-p<-barcelona.data$contributions/sum(barcelona.data$contributions)
+p<-sevilla.data$contributions/sum(sevilla.data$contributions)
 
 opt.f <- function(s) sum((log(p)-lzipf(s,length(p)))^2)
 
-opt <- optimize(opt.f,c(0.5,10))
-zipf.city <- rbind(zipf.city,data.frame(city='Barcelona',min=opt$minimum, obj=opt$objective))
+opt<- optimize(opt.f,c(0.5,10))
+zipf.city <- rbind(zipf.city,data.frame(city='Sevilla',min=opt$minimum, obj=opt$objective))
 
 p<-granada.data$contributions/sum(granada.data$contributions)
 
@@ -248,12 +248,6 @@ opt.f <- function(s) sum((log(p)-lzipf(s,length(p)))^2)
 opt <- optimize(opt.f,c(0.5,10))
 zipf.city <- rbind(zipf.city,data.frame(city='Granada',min=opt$minimum, obj=opt$objective))
 
-p<-zaragoza.data$contributions/sum(zaragoza.data$contributions)
-
-opt.f <- function(s) sum((log(p)-lzipf(s,length(p)))^2)
-
-opt <- optimize(opt.f,c(0.5,10))
-zipf.city <- rbind(zipf.city,data.frame(city='Zaragoza',min=opt$minimum, obj=opt$objective))
 
 p<-valencia.data$contributions/sum(valencia.data$contributions)
 
@@ -262,12 +256,20 @@ opt.f <- function(s) sum((log(p)-lzipf(s,length(p)))^2)
 opt <- optimize(opt.f,c(0.5,10))
 zipf.city <- rbind(zipf.city,data.frame(city='Valencia',min=opt$minimum, obj=opt$objective))
 
-p<-sevilla.data$contributions/sum(sevilla.data$contributions)
+p<-madrid.data$contributions/sum(madrid.data$contributions)
 
 opt.f <- function(s) sum((log(p)-lzipf(s,length(p)))^2)
 
-opt<- optimize(opt.f,c(0.5,10))
-zipf.city <- rbind(zipf.city,data.frame(city='Sevilla',min=opt$minimum, obj=opt$objective))
+opt <- optimize(opt.f,c(0.5,10))
+zipf.city <- rbind(zipf.city,data.frame(city='Madrid',min=opt$minimum, obj=opt$objective))
+
+
+p<-barcelona.data$contributions/sum(barcelona.data$contributions)
+
+opt.f <- function(s) sum((log(p)-lzipf(s,length(p)))^2)
+
+opt <- optimize(opt.f,c(0.5,10))
+zipf.city <- rbind(zipf.city,data.frame(city='Barcelona',min=opt$minimum, obj=opt$objective))
 
 kable(zipf.city)
 @ 
