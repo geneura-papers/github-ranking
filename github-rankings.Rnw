@@ -188,14 +188,14 @@ kable(top20.data)
 \caption{Raw aggregate measures for the 20 most populated provinces,
   including the population (taken from the National Statistics
   Institute), the number of users and their contributions, stars and
-  followers and the average number of contributions: contributions / users. }
+  followers and the average number of contributions: contributions / users. Please note that province names do not correspond to official names, having rather been chosen a bit arbitrarily from the search strings used}
 \label{tab:data}
 \end{table}
 
 The range of users shown in the table hovers around the hundreds, with
 the one in the biggest provincies (and cities) approaching
 1000. However, population and users/contributions are not directly
-related. 
+related. We can already see some differences in figure \ref{fig:user:contrig}, that shows the number of contributions (left) and users (right) in decreasing order. The first two, Madrid and Barcelona, should only be expected, but then Granada (17th in population) and Zaragoza also occupy a place that does not correspond exactly to the population they have; same as Vizcaya, but in the opposite direction.  
 
 \begin{figure}[htb]
   \centering
@@ -205,7 +205,6 @@ ggplot(top20.data.byuser,aes(x=province,y=users)) + geom_bar(stat='identity')+xl
 @
 \caption{Provinces ranked by number of users}
 \label{fig:user:contrib}
-
 \end{figure}
 
 \section{Conclusions}
