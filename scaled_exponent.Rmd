@@ -30,9 +30,10 @@ lm(formula = spain.data$orderScaled ~ log10(spain.data$contributions))
 ```
 
 in order to obtain the exponent of the potencial decaying getting some similar values near -0,36.
-We can get a better value if we notice that in the big city the fit it's better
+We can get a better value if we notice that in big cities the fit it's better
 
 The the data for some places (y=ax+b) :
+
 |place|b   |a   |
 |=====|====|====|
 |barcelona|1,0732|-0,3691
