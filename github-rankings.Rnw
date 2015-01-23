@@ -195,7 +195,7 @@ kable(top20.data)
 The range of users shown in the table hovers around the hundreds, with
 the one in the biggest provincies (and cities) approaching
 1000. However, population and users/contributions are not directly
-related. We can already see some differences in figure \ref{fig:user:contrig}, that shows the number of contributions (left) and users (right) in decreasing order. The first two, Madrid and Barcelona, should only be expected, but then Granada (17th in population) and Zaragoza also occupy a place that does not correspond exactly to the population they have; same as Vizcaya, but in the opposite direction.  
+related. We can already see some differences in figure \ref{fig:user:contrig}, that shows the number of contributions (left) and users (right) in decreasing order. The first two, Madrid and Barcelona, should only be expected, but then Granada (17th in population) and Zaragoza also occupy a place that does not correspond exactly to the population they have; same as Bilbao (actually Vizcaya), but in the opposite direction.  
 
 \begin{figure}[htb]
   \centering
@@ -206,6 +206,21 @@ ggplot(top20.data.byuser,aes(x=province,y=users)) + geom_bar(stat='identity')+xl
 \caption{Provinces ranked by number of users}
 \label{fig:user:contrib}
 \end{figure}
+%
+\begin{figure}[htb]
+  \centering
+<<zipf, echo=FALSE, out.width='.49\\linewidth',fig.height=6, fig.subcap=c('Contributions', 'Users'),>>=
+ggplot()+geom_point(data=barcelona.data, aes(x=seq_along(contributions), y= log10(contributions),color='BCN')) +geom_point(data=zaragoza.data,aes(y=log10(contributions), x=seq_along(contributions),color='ZGZ'))+geom_point(data=madrid.data, aes(x=seq_along(contributions), y= log10(contributions),color='MAD')) +geom_point(data=granada.data,aes(y=log10(contributions), x=seq_along(contributions),color='GRX'))+geom_point(data=sevilla.data, aes(x=seq_along(contributions), y= log10(contributions),color='SVQ')) +geom_point(data=valencia.data,aes(y=log10(contributions), x=seq_along(contributions),color='VLC'))+labs(color="City")+xlab("Rank")
+ggplot()+geom_point(data=barcelona.data, aes(x=seq_along(followers), y=log10(sort(followers,decreasing=TRUE)),color='BCN')) +geom_point(data=zaragoza.data,aes(y=log10(sort(followers,decreasing=TRUE)), x=seq_along(followers),color='ZGZ'))+geom_point(data=madrid.data, aes(x=seq_along(followers), y=log10(sort(followers,decreasing=TRUE)),color='MAD')) +geom_point(data=granada.data,aes(y=log10(sort(followers,decreasing=TRUE)), x=seq_along(followers),color='GRX'))+geom_point(data=sevilla.data, aes(x=seq_along(followers), y=log10(sort(followers,decreasing=TRUE)),color='SVQ')) +geom_point(data=valencia.data,aes(y=log10(sort(followers,decreasing=TRUE)), x=seq_along(followers),color='VLC'))+labs(color="City")+ylab('log10(followers)')+xlab("Rank")
+@
+\caption{Zipf graph, rank vs. number of contributions (left) or followers (right) for the top 6 provinces in number of users and contributions: Madrid, Barcelona, Valencia, Granada, Sevilla, Zaragoza}
+\label{fig:user:contrib}
+\end{figure}
+%
+
+So let us look at the distribution of contributions and users looking for an explanation of the dancing places in the ranking. A users and contributions vs. rank plot is shown in figure \ref{fig:zipf}.
+
+
 
 \section{Conclusions}
 
