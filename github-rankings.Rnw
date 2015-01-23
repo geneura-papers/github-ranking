@@ -385,6 +385,30 @@ the fact that the rankings exist.
 
 \section{Conclusions}
 
+In this paper we have shown what happened when city/province based
+rankings were created using GitHub search API and what conclusions can
+be extracted from measuring the number of users and contributions made
+by these users. 
+
+In general, it is interesting to note that Spain hosts a vibrant,
+abundant and diverse community of developers. Looking at the raw
+numbers, most of them are based in the big cities, Madrid, Barcelona
+and Valencia, but some smaller cities like Zaragoza and Granada also
+host a numerous and productive group of developers. The publishing of
+the rankings has created a lively discussion in Twitter, and also
+allowed the discovery of many developers in many areas. In Granada
+GitHub monthly meetings have started, and many interesting projects,
+including this paper, have been started. 
+
+There are many things that remain to be done. The first one is to
+check the ability of GitHub to act as a social network; we would like
+to analyze how developers in a city connect to each other and how
+these actual communities change with time and what is their
+background, companies, academia or user groups. Other productivity
+measures could also be taken, including number of lines; besides, a
+differentiation between code and artifacts could be made, in the same
+way it was done by Robles et al. in \cite{robles06}.
+
 \section{Acknowledgements}
 
 This paper is part of the open science effort at the university of
