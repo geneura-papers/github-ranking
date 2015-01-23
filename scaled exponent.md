@@ -1,0 +1,80 @@
+# Calculate the potencial exponent for the scaled contribution for different places
+
+We add a new column to each dataset with the normaliced order (between 0 and 1) named "orderScaled" (I know its a bad-english name), using this expression for each datadaset:
+
+	spain.data$orderScaled<-seq_along(spain.data$contributions)/length(spain.data$contributions)
+
+We plot the new data seem a not bad fit of most of the data:
+
+qplot(zaragoza.data$orderScaled,log10(zaragoza.data$contributions)) + 
+geom_point(aes(y=log10(almeria.data$contributions),x=almeria.data$orderScaled,color='almeria.data$contributions')) + 
+geom_point(aes(y=log10(madrid.data$contributions),x=madrid.data$orderScaled,color='madrid.data$contributions')) + 
+geom_point(aes(y=log10(barcelona.data$contributions),x=barcelona.data$orderScaled,color='barcelona.data$contributions')) + 
+geom_point(aes(y=log10(spain.data$contributions),x=spain.data$orderScaled,color='spain.data$contributions')) +
+geom_point(aes(y=log10(malaga.data$contributions),x=malaga.data$orderScaled,color='malaga.data$contributions')) +
+geom_point(aes(y=log10(sevilla.data$contributions),x=sevilla.data$orderScaled,color='sevilla.data$contributions')) +
+geom_point(aes(y=log10(granada.data$contributions),x=granada.data$orderScaled,color='granada.data$contributions')) +
+geom_point(aes(y=log10(bilbao.data$contributions),x=bilbao.data$orderScaled,color='bilbao.data$contributions')) +
+geom_point(aes(y=log10(cordoba.data$contributions),x=cordoba.data$orderScaled,color='cordoba.data$contributions')) +
+geom_point(aes(y=log10(jaen.data$contributions),x=jaen.data$orderScaled,color='jaen.data$contributions'))
+
+So, we make a linear regression  orderScaled vs log10(contributions) using the expression:
+
+
+	lm(formula = spain.data$orderScaled ~ log10(spain.data$contributions))
+
+in order to obtain the exponent of the potencial decaying getting some similar values near -0,36.
+We can get a better value if we notice that in the big city the fit it's better
+
+The the data for some places (y=ax+b) :
+
+|place|b|a
+|barcelona|1,0732|-0,3691
+|madrid|1,0717|-0,3562 
+|spain|1,1480|-0,3604  
+|sevilla|1,0503|-0,3791  
+|jaen|1,0718|-0,3662  
+|cadiz|1,0996|-0,4239  
+|zaragoz| 1,0176|-0,3307  
+|valencia|1,0560|-0,3815  
+|malaga|1,0062|-0,3777  
+|granada|1,179|-0,406  
+|huelva|1,0781|-0,3084  
+|cordoba|1,1829|-0,4883  
+|bilbao|1,0210|-0,3609
+
+
+Looking in more detail to the chart we can notice that Granada show a extrange efect that we call  the JJ efect where there is a lot of user with low number of contribution
+
+## JJ efect is clearly visible in Granada
+
+### Plot with Granada
+
+qplot(zaragoza.data$orderScaled,log10(zaragoza.data$contributions)) + 
+geom_point(aes(y=log10(almeria.data$contributions),x=almeria.data$orderScaled,color='almeria.data$contributions')) + 
+geom_point(aes(y=log10(madrid.data$contributions),x=madrid.data$orderScaled,color='madrid.data$contributions')) + 
+geom_point(aes(y=log10(barcelona.data$contributions),x=barcelona.data$orderScaled,color='barcelona.data$contributions')) + 
+geom_point(aes(y=log10(spain.data$contributions),x=spain.data$orderScaled,color='spain.data$contributions')) +
+geom_point(aes(y=log10(malaga.data$contributions),x=malaga.data$orderScaled,color='malaga.data$contributions')) +
+geom_point(aes(y=log10(sevilla.data$contributions),x=sevilla.data$orderScaled,color='sevilla.data$contributions')) +
+geom_point(aes(y=log10(granada.data$contributions),x=granada.data$orderScaled,color='granada.data$contributions')) +
+geom_point(aes(y=log10(bilbao.data$contributions),x=bilbao.data$orderScaled,color='bilbao.data$contributions')) +
+geom_point(aes(y=log10(cordoba.data$contributions),x=cordoba.data$orderScaled,color='cordoba.data$contributions')) +
+geom_point(aes(y=log10(jaen.data$contributions),x=jaen.data$orderScaled,color='jaen.data$contributions'))
+
+
+### Plot without Granada
+
+qplot(zaragoza.data$orderScaled,log10(zaragoza.data$contributions)) + 
+geom_point(aes(y=log10(almeria.data$contributions),x=almeria.data$orderScaled,color='almeria.data$contributions')) + 
+geom_point(aes(y=log10(madrid.data$contributions),x=madrid.data$orderScaled,color='madrid.data$contributions')) + 
+geom_point(aes(y=log10(barcelona.data$contributions),x=barcelona.data$orderScaled,color='barcelona.data$contributions')) + 
+geom_point(aes(y=log10(spain.data$contributions),x=spain.data$orderScaled,color='spain.data$contributions')) +
+geom_point(aes(y=log10(malaga.data$contributions),x=malaga.data$orderScaled,color='malaga.data$contributions')) +
+geom_point(aes(y=log10(sevilla.data$contributions),x=sevilla.data$orderScaled,color='sevilla.data$contributions')) +
+geom_point(aes(y=log10(bilbao.data$contributions),x=bilbao.data$orderScaled,color='bilbao.data$contributions')) +
+geom_point(aes(y=log10(cordoba.data$contributions),x=cordoba.data$orderScaled,color='cordoba.data$contributions')) +
+geom_point(aes(y=log10(jaen.data$contributions),x=jaen.data$orderScaled,color='jaen.data$contributions'))
+
+
+The spain chart shows a different efect that we will investigate in a near future ;)
