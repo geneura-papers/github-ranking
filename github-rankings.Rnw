@@ -214,13 +214,67 @@ ggplot()+geom_point(data=barcelona.data, aes(x=seq_along(contributions), y= log1
 ggplot()+geom_point(data=barcelona.data, aes(x=seq_along(followers), y=log10(sort(followers,decreasing=TRUE)),color='BCN')) +geom_point(data=zaragoza.data,aes(y=log10(sort(followers,decreasing=TRUE)), x=seq_along(followers),color='ZGZ'))+geom_point(data=madrid.data, aes(x=seq_along(followers), y=log10(sort(followers,decreasing=TRUE)),color='MAD')) +geom_point(data=granada.data,aes(y=log10(sort(followers,decreasing=TRUE)), x=seq_along(followers),color='GRX'))+geom_point(data=sevilla.data, aes(x=seq_along(followers), y=log10(sort(followers,decreasing=TRUE)),color='SVQ')) +geom_point(data=valencia.data,aes(y=log10(sort(followers,decreasing=TRUE)), x=seq_along(followers),color='VLC'))+labs(color="City")+ylab('log10(followers)')+xlab("Rank")
 @
 \caption{Zipf graph, rank vs. number of contributions (left) or followers (right) for the top 6 provinces in number of users and contributions: Madrid, Barcelona, Valencia, Granada, Sevilla, Zaragoza}
-\label{fig:user:contrib}
+\label{fig:zipf}
 \end{figure}
 %
 
-So let us look at the distribution of contributions and users looking for an explanation of the dancing places in the ranking. A users and contributions vs. rank plot is shown in figure \ref{fig:zipf}.
+So let us look at the distribution of contributions and users looking for an explanation of the dancing places in the ranking. A users and contributions vs. rank plot is shown in figure \ref{fig:zipf}; it shows different slopes which imply different distribution, but there is a clear indication that a Zipf-like distribution is taking place in all cases. So let us compute the Zipf exponent and objective, which we show in table \ref{tab:zipf}.
 
+\begin{table}[h]
+  \begin{tabular}{|r|c|c|}
+<<zipfexp,echo=FALSE>>=
+#Taken from http://stats.stackexchange.com/questions/6780/how-to-calculate-zipfs-law-coefficient-from-a-set-of-top-frequencies
 
+p<-madrid.data$contributions/sum(madrid.data$contributions)
+
+lzipf <- function(s,N) -s*log(1:N)-log(sum(1/(1:N)^s))
+
+opt.f <- function(s) sum((log(p)-lzipf(s,length(p)))^2)
+
+opt <- optimize(opt.f,c(0.5,10))
+zipf.city <- data.frame(city='Madrid',min=opt$minimum, obj=opt$objective)
+
+p<-barcelona.data$contributions/sum(barcelona.data$contributions)
+
+opt.f <- function(s) sum((log(p)-lzipf(s,length(p)))^2)
+
+opt <- optimize(opt.f,c(0.5,10))
+zipf.city <- rbind(zipf.city,data.frame(city='Barcelona',min=opt$minimum, obj=opt$objective))
+
+p<-granada.data$contributions/sum(granada.data$contributions)
+
+opt.f <- function(s) sum((log(p)-lzipf(s,length(p)))^2)
+
+opt <- optimize(opt.f,c(0.5,10))
+zipf.city <- rbind(zipf.city,data.frame(city='Granada',min=opt$minimum, obj=opt$objective))
+
+p<-zaragoza.data$contributions/sum(zaragoza.data$contributions)
+
+opt.f <- function(s) sum((log(p)-lzipf(s,length(p)))^2)
+
+opt <- optimize(opt.f,c(0.5,10))
+zipf.city <- rbind(zipf.city,data.frame(city='Zaragoza',min=opt$minimum, obj=opt$objective))
+
+p<-valencia.data$contributions/sum(valencia.data$contributions)
+
+opt.f <- function(s) sum((log(p)-lzipf(s,length(p)))^2)
+
+opt <- optimize(opt.f,c(0.5,10))
+zipf.city <- rbind(zipf.city,data.frame(city='Valencia',min=opt$minimum, obj=opt$objective))
+
+p<-sevilla.data$contributions/sum(sevilla.data$contributions)
+
+opt.f <- function(s) sum((log(p)-lzipf(s,length(p)))^2)
+
+opt<- optimize(opt.f,c(0.5,10))
+zipf.city <- rbind(zipf.city,data.frame(city='Sevilla',min=opt$minimum, obj=opt$objective))
+
+kable(zipf.city)
+@ 
+\end{tabular}
+\caption{Zipf coefficients for all 6 ``big'' cities, with slope and objective }
+\label{tab:zipf}
+\end{table}
 
 \section{Conclusions}
 
