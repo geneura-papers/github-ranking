@@ -195,7 +195,7 @@ kable(top20.data)
 The range of users shown in the table hovers around the hundreds, with
 the one in the biggest provincies (and cities) approaching
 1000. However, population and users/contributions are not directly
-related. We can already see some differences in figure \ref{fig:user:contrig}, that shows the number of contributions (left) and users (right) in decreasing order. The first two, Madrid and Barcelona, should only be expected, but then Granada (17th in population) and Zaragoza also occupy a place that does not correspond exactly to the population they have; same as Bilbao (actually Vizcaya), but in the opposite direction.  
+related. We can already see some differences in figure \ref{fig:user:contrib}, that shows the number of contributions (left) and users (right) in decreasing order. The first two, Madrid and Barcelona, should only be expected, but then Granada (17th in population) and Zaragoza also occupy a place that does not correspond exactly to the population they have; same as Bilbao (actually Vizcaya), but in the opposite direction.  
 
 \begin{figure}[htb]
   \centering
