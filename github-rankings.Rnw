@@ -161,7 +161,7 @@ and the current
 contribution streak as well as the {\em predominant} language and
 avatar. Some of these metrics are shown in the Markdown rankings; for
 instance, see the 
-\href{https://github.com/JJ/top-github-users-data/blob/master/formatted/top-Madrid.md}{one for Madrid:}.
+\href{https://github.com/JJ/top-github-users-data/blob/master/formatted/top-Madrid.md}{one for Madrid}.
 
 Data is saved to a 
 \href{https://github.com/JJ/top-github-users-data/}{different repository} and is aggregated
@@ -322,9 +322,9 @@ contributions and those with the least. An index equal to 1 would mean
 a single person did all the contributions, while the rest did 0, and
 index equal to 0 would mean all users make the same number of
 contributions. The table \ref{tab:gini} ranks the cities from least
-equal (Madrid) to most equalitarian, Valencia. However, there is no
+equal (Madrid) to most egalitarian, Valencia. However, there is no
 big range of variation, hovering around 0.70, which is way over the
-inequality of the most inequal country in the world, the
+inequality of the most unequal country in the world, the
 Seychelles. However, this is meaningless in absolute terms; in
 relative terms, it means roughly that the top contributors contribute
 roughly 70\% more than the bottom contributors, and that there is no
@@ -372,14 +372,14 @@ a new ranking and are not uniformly distributed in time.}
 %
 The first time the census for Granada was published it included around
 140 users. A month (approximately) later, there were more than 180, a
-28\% increase, more or less the same than for Málaga and more than for
+28\% increase, more or less the same than for M{'a}laga and more than for
 Seville, where a small increase was noted. Take into account that this
 is not absolute number of users, but only {\em active} users; in fact,
 it might decrease due to some user becoming inactive (no contribution)
 in the last year (this happens in some of the cases in Granada). So,
 in general, it should be expected to go every which way, depending on
 the city. The fact that all cities whose rankings have been published
-have {\em increased} the number of active users after difussion,
+have {\em increased} the number of active users after diffusion,
 mainly in Twitter, might be an indication more users becoming active,
 more mentioning their city/province in their profile, or small
 competitions taking place locally to scale up the rankings if there is
@@ -406,11 +406,11 @@ including this paper, have been started.
 
 There are many things that remain to be done. The first one is to
 check the ability of GitHub to act as a social network; we would like
-to analyze how developers in a city connect to each other and how
+to analyse how developers in a city connect to each other and how
 these actual communities change with time and what is their
 background, companies, academia or user groups. Other productivity
 measures could also be taken, including number of lines; besides, a
-differentiation between code and artifacts could be made, in the same
+differentiation between code and artefacts could be made, in the same
 way it was done by Robles et al. in \cite{robles06}.
 
 \section{Acknowledgements}
