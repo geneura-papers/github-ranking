@@ -10,7 +10,7 @@ load(".RData")
 
 \title{Github rankings and its impact on the local free software
   development community}
-\author{JJ Merelo\thanks{GeNeura Team and Free Software Office, University of Granada}, Israel Blancas\thanks{University of Granada}}
+\author{JJ Merelo\thanks{GeNeura Team and Free Software Office, University of Granada}, Israel Blancas\thanks{University of Granada}, M. G. Arenas \thanks{University of Granada}}
 
 \begin{document}
 \maketitle
@@ -27,16 +27,16 @@ load(".RData")
 \section{Introduction}
 
 One of the keys to create a community is to actually identify who is
-part of it. As part of the effort by the Free Software Office of the
+part of it and how they participate. As part of the effort by the Free Software Office of the
 University of Granada, we have tried, through the years, to know who
-is involved in the creation of open source software. However, the only
+is involved in the creation of open source projects. However, the only % quito software porque algunos projectos no son solo software
 way of finding out who was is to make them come to any of our events
 or contact us through any means.
 
-So the initial intention for creating a ranking of FLOSS developers
+So the initial intention for creating a ranking of FLOSS (Free/Libre/Open/Source Software)
 was to know who is out there and the kind of things they are doing, be
-them part of the university or not; creating a census would allow us
-to discover new FLOSS developers in our own city.
+them part of the academic world or they belong to the business one; creating a census would allow us
+to discover new FLOSS developers in our own city and even to collaborate with them.
 
 So we used initialy the GitHub top-1000 generation script by Paul
 Miller \href{https://github.com/paulmillr/top-github-users} to achieve
@@ -49,7 +49,7 @@ place. More modifications and changes were added and new data was
 obtained. As part of the code tests, more cities were tested and we
 ended up with lots of data. And data begs for analysis, which we
 eventually started to do. And, along the way, we built a community of
-users that previously had not known each other and we discovered that
+users that previously had not known each other. We discovered that
 the only fact that a census exists does not imply that there is a
 community, but it definitely helps. 
 
@@ -68,7 +68,7 @@ Coming up next we will review different papers that deal with creating
 lists and rankings of contributions and trying to measure or explain
 the dynamics of communities. In section \ref{sec:exp} we will show the
 methodology for obtaining the users in a particular province in Spain;
-next we will analyze data obtained and show how different provinces
+next we will analyse data obtained and show how different provinces
 stack up in terms of contributions and finally we will draw some
 conclusions. 
 
@@ -86,7 +86,7 @@ in the databases.
 It is interesting to note that some models \cite{robles05} use the
 concept of stigmergy, that is, interaction using the environment, to
 model the dynamics of libre software projects; the mere existence of
-these tools can be a catalyzer of this interaction and the harbinger
+these tools can be a catalyst of this interaction and the harbinger
 of new software projects. In fact, this seems to be what has happened
 in the community (or communities) under observation: the mere creation of
 a document that mentions many different users acts as a substrate that
@@ -109,7 +109,7 @@ every person has made during the last year. Besides this
 easily-scrapeable information, GitHub has a REST API that can be
 accessed from any language. 
 
-Some other web-based repos do have many of the characteristics, and,
+Some other web-based \it{repos} do have many of the characteristics, and,
 besides, are based in free software themselves, like
 Gitorious. However, the number of users of these repositories is quite
 small compared to GitHub, which has become the tool of choice for
@@ -128,7 +128,7 @@ called from several scripts.
 
 Our intention was to look for users in a particular location, that is,
 to limit them not by minimum number of users but for the location
-declared in the profile. Every run of the program required 10 API
+declared in their profiles. Every run of the program required 10 API
 requests which is limited to 20 per hour, so we modified it so that it
 used authenticated requests, besides. Finally, we had to rearrange the
 whole code so that it counted the number of stars and could be
@@ -196,7 +196,7 @@ kable(top20.data)
 \end{table}
 
 The range of users shown in the table hovers around the hundreds, with
-the one in the biggest provincies (and cities) approaching
+the one in the biggest provinces (and cities) approaching
 1000. However, population and users/contributions are not directly
 related. We can already see some differences in figure \ref{fig:user:contrib}, that shows the number of contributions (left) and users (right) in decreasing order. The first two, Madrid and Barcelona, should only be expected, but then Granada (17th in population) and Zaragoza also occupy a place that does not correspond exactly to the population they have; same as Bilbao (actually Vizcaya), but in the opposite direction.  
 
