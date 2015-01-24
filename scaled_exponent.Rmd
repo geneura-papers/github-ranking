@@ -11,7 +11,7 @@ We plot the new data seem a not bad fit of most of the data:
 
 ```{r}
 library("ggplot2")
-qplot(zaragoza.data$orderScaled,log10(zaragoza.data$contributions)) + 
+ggplot() + geom_point(data=zaragoza.data,aes(x=orderScaled,y=log10(contributions),color='ZGZ')) + 
 geom_point(aes(y=log10(almeria.data$contributions),x=almeria.data$orderScaled,color='almeria.data$contributions')) + 
 geom_point(aes(y=log10(madrid.data$contributions),x=madrid.data$orderScaled,color='madrid.data$contributions')) + 
 geom_point(aes(y=log10(barcelona.data$contributions),x=barcelona.data$orderScaled,color='barcelona.data$contributions')) + 

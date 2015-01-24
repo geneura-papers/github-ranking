@@ -188,7 +188,9 @@ kable(top20.data)
 \caption{Raw aggregate measures for the 20 most populated provinces,
   including the population (taken from the National Statistics
   Institute), the number of users and their contributions, stars and
-  followers and the average number of contributions: contributions / users. Please note that province names do not correspond to official names, having rather been chosen a bit arbitrarily from the search strings used}
+  followers. Please note that province names do not correspond to
+  official names, having rather been chosen a bit arbitrarily from the
+  search strings used.} 
 \label{tab:data}
 \end{table}
 
@@ -199,19 +201,19 @@ related. We can already see some differences in figure \ref{fig:user:contrib}, t
 
 \begin{figure}[htb]
   \centering
-<<byfollow, echo=FALSE, out.width='.49\\linewidth',fig.height=6, fig.subcap=c('Contributions', 'Users'),>>=
-ggplot(top20.data.bycontrib,aes(x=province,y=contributions)) + geom_bar(stat='identity')+xlab("Contributions")+ coord_flip()
-ggplot(top20.data.byuser,aes(x=province,y=users)) + geom_bar(stat='identity')+xlab("Contributions")+ coord_flip()
+<<byfollow, echo=FALSE, out.width='.49\\linewidth',fig.height=6, fig.subcap=c('# Contributions', '#Users'),>>=
+ggplot(top20.data.bycontrib,aes(x=province,y=contributions)) + geom_bar(stat='identity')+xlab("Cities")+ coord_flip()
+ggplot(top20.data.byuser,aes(x=province,y=users)) + geom_bar(stat='identity')+xlab("Cities")+ coord_flip()
 @
-\caption{Provinces ranked by number of users}
+\caption{Provinces ranked by number of contributions (left) and users (right)}
 \label{fig:user:contrib}
 \end{figure}
 %
 \begin{figure}[htb]
   \centering
 <<zipf, echo=FALSE, out.width='.49\\linewidth',fig.height=6, fig.subcap=c('Contributions', 'Users'),>>=
-ggplot()+geom_point(data=barcelona.data, aes(x=seq_along(contributions), y= log10(contributions),color='BCN')) +geom_point(data=zaragoza.data,aes(y=log10(contributions), x=seq_along(contributions),color='ZGZ'))+geom_point(data=madrid.data, aes(x=seq_along(contributions), y= log10(contributions),color='MAD')) +geom_point(data=granada.data,aes(y=log10(contributions), x=seq_along(contributions),color='GRX'))+geom_point(data=sevilla.data, aes(x=seq_along(contributions), y= log10(contributions),color='SVQ')) +geom_point(data=valencia.data,aes(y=log10(contributions), x=seq_along(contributions),color='VLC'))+labs(color="City")+xlab("Rank")
-ggplot()+geom_point(data=barcelona.data, aes(x=seq_along(followers), y=log10(sort(followers,decreasing=TRUE)),color='BCN')) +geom_point(data=zaragoza.data,aes(y=log10(sort(followers,decreasing=TRUE)), x=seq_along(followers),color='ZGZ'))+geom_point(data=madrid.data, aes(x=seq_along(followers), y=log10(sort(followers,decreasing=TRUE)),color='MAD')) +geom_point(data=granada.data,aes(y=log10(sort(followers,decreasing=TRUE)), x=seq_along(followers),color='GRX'))+geom_point(data=sevilla.data, aes(x=seq_along(followers), y=log10(sort(followers,decreasing=TRUE)),color='SVQ')) +geom_point(data=valencia.data,aes(y=log10(sort(followers,decreasing=TRUE)), x=seq_along(followers),color='VLC'))+labs(color="City")+ylab('log10(followers)')+xlab("Rank")
+ggplot()+geom_point(data=barcelona.data, aes(x=log(seq_along(contributions)), y= log10(contributions),color='BCN')) +geom_point(data=zaragoza.data,aes(y=log10(contributions), x=log(seq_along(contributions)),color='ZGZ'))+geom_point(data=madrid.data, aes(x=log(seq_along(contributions)), y= log10(contributions),color='MAD')) +geom_point(data=granada.data,aes(y=log10(contributions), x=log(seq_along(contributions)),color='GRX'))+geom_point(data=sevilla.data, aes(x=log(seq_along(contributions)), y= log10(contributions),color='SVQ')) +geom_point(data=valencia.data,aes(y=log10(contributions), x=log(seq_along(contributions)),color='VLC'))+labs(color="City")+xlab("Rank")
+ggplot()+geom_point(data=barcelona.data, aes(x=log(seq_along(followers)), y=log10(sort(followers,decreasing=TRUE)),color='BCN')) +geom_point(data=zaragoza.data,aes(y=log10(sort(followers,decreasing=TRUE)), x=log(seq_along(followers)),color='ZGZ'))+geom_point(data=madrid.data, aes(x=log(seq_along(followers)), y=log10(sort(followers,decreasing=TRUE)),color='MAD')) +geom_point(data=granada.data,aes(y=log10(sort(followers,decreasing=TRUE)), x=log(seq_along(followers)),color='GRX'))+geom_point(data=sevilla.data, aes(x=log(seq_along(followers)), y=log10(sort(followers,decreasing=TRUE)),color='SVQ')) +geom_point(data=valencia.data,aes(y=log10(sort(followers,decreasing=TRUE)), x=log(seq_along(followers)),color='VLC'))+labs(color="City")+ylab('log10(followers)')+xlab("Rank")
 @
 \caption{Zipf graph, rank vs. number of contributions (left) or followers (right) for the top 6 provinces in number of users and contributions: Madrid, Barcelona, Valencia, Granada, Sevilla, Zaragoza}
 \label{fig:zipf}
@@ -232,35 +234,35 @@ lzipf <- function(s,N) -s*log(1:N)-log(sum(1/(1:N)^s))
 opt.f <- function(s) sum((log(p)-lzipf(s,length(p)))^2)
 
 opt <- optimize(opt.f,c(0.5,10))
-zipf.city <- data.frame(city='Zaragoza',min=opt$minimum, obj=opt$objective)
+zipf.city <- data.frame(city='Zaragoza',exponent=opt$minimum, obj=opt$objective)
 
 p<-sevilla.data$contributions/sum(sevilla.data$contributions)
 
 opt.f <- function(s) sum((log(p)-lzipf(s,length(p)))^2)
 
 opt<- optimize(opt.f,c(0.5,10))
-zipf.city <- rbind(zipf.city,data.frame(city='Sevilla',min=opt$minimum, obj=opt$objective))
+zipf.city <- rbind(zipf.city,data.frame(city='Sevilla',exponent=opt$minimum, obj=opt$objective))
 
 p<-granada.data$contributions/sum(granada.data$contributions)
 
 opt.f <- function(s) sum((log(p)-lzipf(s,length(p)))^2)
 
 opt <- optimize(opt.f,c(0.5,10))
-zipf.city <- rbind(zipf.city,data.frame(city='Granada',min=opt$minimum, obj=opt$objective))
+zipf.city <- rbind(zipf.city,data.frame(city='Granada',exponent=opt$minimum, obj=opt$objective))
 
 p<-valencia.data$contributions/sum(valencia.data$contributions)
 
 opt.f <- function(s) sum((log(p)-lzipf(s,length(p)))^2)
 
 opt <- optimize(opt.f,c(0.5,10))
-zipf.city <- rbind(zipf.city,data.frame(city='Valencia',min=opt$minimum, obj=opt$objective))
+zipf.city <- rbind(zipf.city,data.frame(city='Valencia',exponent=opt$minimum, obj=opt$objective))
 
 p<-madrid.data$contributions/sum(madrid.data$contributions)
 
 opt.f <- function(s) sum((log(p)-lzipf(s,length(p)))^2)
 
 opt <- optimize(opt.f,c(0.5,10))
-zipf.city <- rbind(zipf.city,data.frame(city='Madrid',min=opt$minimum, obj=opt$objective))
+zipf.city <- rbind(zipf.city,data.frame(city='Madrid',exponent=opt$minimum, obj=opt$objective))
 
 
 p<-barcelona.data$contributions/sum(barcelona.data$contributions)
@@ -268,12 +270,12 @@ p<-barcelona.data$contributions/sum(barcelona.data$contributions)
 opt.f <- function(s) sum((log(p)-lzipf(s,length(p)))^2)
 
 opt <- optimize(opt.f,c(0.5,10))
-zipf.city <- rbind(zipf.city,data.frame(city='Barcelona',min=opt$minimum, obj=opt$objective))
+zipf.city <- rbind(zipf.city,data.frame(city='Barcelona',exponent=opt$minimum, obj=opt$objective))
 
 kable(zipf.city)
 @ 
 \end{tabular}
-\caption{Zipf coefficients for all 6 ``big'' cities, with slope and objective }
+\caption{Zipf coefficients for all 6 ``big'' cities, with exponent and objective }
 \label{tab:zipf}
 \end{table}
 
