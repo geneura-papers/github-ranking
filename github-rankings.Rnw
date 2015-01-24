@@ -29,13 +29,15 @@ load(".RData")
 One of the keys to create a community is to actually identify who is
 part of it and how they participate. As part of the effort by the Free Software Office of the
 University of Granada, we have tried, through the years, to know who
-is involved in the creation of open source projects. However, the only % quito software porque algunos projectos no son solo software
+is involved in the creation of open source projects. However, the only
+% quito software porque algunos projectos no son solo software 
+% Totalmente correcto. Gracias - JJ
 way of finding out who was is to make them come to any of our events
 or contact us through any means.
 
 So the initial intention for creating a ranking of FLOSS (Free/Libre/Open/Source Software)
 was to know who is out there and the kind of things they are doing, be
-them part of the academic world or they belong to the business one; creating a census would allow us
+them part of the academic world or outside it, in business; creating a census would allow us
 to discover new FLOSS developers in our own city and even to collaborate with them.
 
 So we used initialy the GitHub top-1000 generation script by Paul
