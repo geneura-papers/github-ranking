@@ -10,7 +10,7 @@ load(".RData")
 
 \title{Github rankings and its impact on the local free software
   development community}
-\author{JJ Merelo\thanks{GeNeura Team and Free Software Office, University of Granada}}
+\author{JJ Merelo\thanks{GeNeura Team and Free Software Office, University of Granada}, Israel Blancas\thanks{University of Granada}}
 
 \begin{document}
 \maketitle
@@ -338,7 +338,7 @@ number of users.
 \begin{figure}[htb]
   \centering
 <<avg, echo=FALSE, fig.height=6, fig.width=8>>=
-ggplot(top20.data.byavgcontrib,aes(x=province,y=avgcontrib)) + geom_bar(stat='identity')+coord_flip()+xlab("Contributions/# users")
+ggplot(top20.data.byavgcontrib,aes(x=province,y=avgcontrib)) + geom_bar(stat='identity')+coord_flip()+xlab("Contributions/users")
 @
 \caption{Average number of contributions, sorted from top to bottom,
   for the 20 provinces with the most habitants.}
