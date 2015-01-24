@@ -8,7 +8,7 @@ library("ggplot2")
 load(".RData")
 @ 
 
-\title{Github rankings and its impact on the local free software
+\title{GitHub rankings and its impact on the local free software
   development community}
 \author{JJ Merelo\thanks{GeNeura Team and Free Software Office, University of Granada}, Israel Blancas\thanks{University of Granada}, M. G. Arenas \thanks{University of Granada}}
 
