@@ -109,7 +109,7 @@ every person has made during the last year. Besides this
 easily-scrapeable information, GitHub has a REST API that can be
 accessed from any language. 
 
-Some other web-based \it{repos} do have many of the characteristics, and,
+Some other web-based \emph{repos} do have many of the characteristics, and,
 besides, are based in free software themselves, like
 Gitorious. However, the number of users of these repositories is quite
 small compared to GitHub, which has become the tool of choice for
@@ -176,7 +176,7 @@ Twitter from my {\tt @jjmerelo} account.
 We reduced the search to the 20 most populated provinces in Spain, for
 which appropriate search strings and filters were created. All data
 was downloaded during January 2015, and is available from the already
-mentioned repo.  Aggregate data for these 20 provinces is shown in
+mentioned \emph{repo}.  Aggregate data for these 20 provinces is shown in
 table \ref{tab:data}.
 
 \begin{table}[h]
