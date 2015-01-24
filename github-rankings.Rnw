@@ -1,7 +1,8 @@
-\documentclass{article}
+\documentclass{winnower}
+
 \usepackage[utf8]{inputenc}
 \usepackage{hyperref}
-\usepackage{subfigure}
+
 
 <<setup, cache=FALSE,echo=FALSE>>=
 library("ggplot2")
@@ -17,6 +18,8 @@ load(".RData")
 }
 
 \begin{document}
+\date{}
+
 \maketitle
 
 \begin{abstract}
@@ -431,7 +434,7 @@ the data used to create it can be downloaded from
 
 
 
-\bibliographystyle{plain}
+\bibliographystyle{abbrvnat}
 \bibliography{geneura,rankings}
 
 \end{document}
