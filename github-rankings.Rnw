@@ -111,9 +111,23 @@ geographically based GitHub users.
 
 \section{GitHub city rankings, the tool}
 \label{sec:exp}
+\begin{table}[htb]
+    \centering
 
+<<kable,results="asis",echo=FALSE>>=
+kable(top20.data)
+@
+\caption{Raw aggregate measures for the 20 most populated provinces,
+  including the population (taken from the National Statistics
+  Institute), the number of users and their contributions, stars and
+  followers. Please note that province names do not correspond to
+  official names, having rather been chosen a bit arbitrarily from the
+  search strings used.} 
+\label{tab:data}
+\end{table}
+%
 It is quite unlikely that if you are reading this you do not know what
-is  \href{http://github.com}{GitHub}. GitHub is a web-based git
+is \href{http://github.com}{GitHub}. GitHub is a web-based git
 repository that has a number of ``social'' features, including the
 declaration of a profile and {\tt @} mentions in commit messages and
 issues. The profile page includes information on the number of
@@ -187,21 +201,6 @@ Twitter from my {\tt @jjmerelo} account.
 \section{Results and analysis}
 \label{sec:res}
 
-\begin{table}[h]
-    \centering
-
-<<kable,results="asis",echo=FALSE>>=
-kable(top20.data)
-@
-\caption{Raw aggregate measures for the 20 most populated provinces,
-  including the population (taken from the National Statistics
-  Institute), the number of users and their contributions, stars and
-  followers. Please note that province names do not correspond to
-  official names, having rather been chosen a bit arbitrarily from the
-  search strings used.} 
-\label{tab:data}
-\end{table}
-%
 We reduced the search to the 20 most populated provinces in Spain, for
 which appropriate search strings and filters were created\footnote{Population data was obtained fromt the National Statistics
   Institute \url{http://www.ine.es/}}. All data
@@ -237,7 +236,7 @@ ggplot()+geom_point(data=barcelona.data, aes(x=log(seq_along(followers)), y=log1
 
 So let us look at the distribution of contributions and users looking for an explanation of the dancing places in the ranking. A users and contributions vs. rank plot is shown in figure \ref{fig:zipf}; it shows different slopes which imply different distribution, but there is a clear indication that a Zipf-like distribution is taking place in all cases. So let us compute the Zipf exponent and objective, which we show in table \ref{tab:zipf}.
 
-\begin{table}[h]
+\begin{table}[htb]
   \centering
 
 <<zipfexp,echo=FALSE>>=
@@ -312,7 +311,7 @@ ggplot()+geom_point(data=barcelona.data, aes(x=seq_along(contributions)/length(c
 \label{fig:lorenz}
 \end{figure}
 %
-\begin{table}[h]
+\begin{table}[htb]
     \centering
 <<gini,echo=FALSE,results='asis'>>=
 library(ineq)
@@ -386,7 +385,7 @@ a new ranking and are not uniformly distributed in time.}
 %
 The first time the census for Granada was published it included around
 140 users. A month (approximately) later, there were more than 180, a
-28\% increase, more or less the same than for M{'a}laga and more than for
+28\% increase, more or less the same than for Málaga and more than for
 Seville, where a small increase was noted. Take into account that this
 is not absolute number of users, but only {\em active} users; in fact,
 it might decrease due to some user becoming inactive (no contribution)
