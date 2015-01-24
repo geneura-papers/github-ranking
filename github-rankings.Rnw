@@ -39,7 +39,7 @@ is involved in the creation of open source projects. However, the only
 way of finding out who was is to make them come to any of our events
 or contact us through any means.
 
-So the initial intention for creating a ranking of FLOSS (Free/Libre/Open/Source Software)
+So the initial intention for creating a ranking of FLOSS (Free/Libre/Open/So\-ur\-ce Software)
 was to know who is out there and the kind of things they are doing, be
 them part of the academic world or outside it, in business; creating a census would allow us
 to discover new FLOSS developers in our own city and even to collaborate with them.
@@ -54,10 +54,10 @@ people contacted us and the first GitHub meetup in Granada took
 place. More modifications and changes were added and new data was
 obtained. As part of the code tests, more cities were tested and we
 ended up with lots of data. And data begs for analysis, which we
-eventually started to do. And, along the way, we built a community of
-users that previously had not known each other. We discovered that
+eventually started to do. And, along the way, we built a community of users that previously had not known each other. We discovered that
 the only fact that a census exists does not imply that there is a
 community, but it definitely helps. 
+We have had some experience with this kind of reactions in the past. In~\cite{blogtalk} we did some studies on social network analysis and other measures of the Spanish-speaking blogosphere. Then, the reactions were two fold: on one side, people showed big interest in the index in order to be listed there; some blog providers provided also data. On the other side, people that were expecting to appear in better positions were a bit angry about it\footnote{You can see some of the discussions and links -unfortunately most of them do not work- at: \url{http://www.blogalia.com/historias/7744} (in Spanish)}. Anyway we feel that self-conciousness is always a good thing and this work can serve as a driving force for more code sharing and increase relations among developers.
 
 In this paper, using the tool that we have created for searching for
 the users in particular cities or provinces, we will show how the
@@ -69,6 +69,7 @@ communities measured. Finally, we will try to draw some conclusions on
 how measuring activity affects that activity and what are the general
 characteristics of open source developers in the provinces measured,
 which are the top 20 in population in Spain.
+
 
 Coming up next we will review different papers that deal with creating
 lists and rankings of contributions and trying to measure or explain
@@ -88,6 +89,7 @@ activity; for instance, Laura Arjona describes the {\em Debian
 to a website that includes information on the projects that every user
 has contributed and some other data such as how users are identified
 in the databases. 
+However, geography seems to ve relevant in human interactions even when we are in Internet, where one could expect this factor to be less important. See, for example, `Visualizing Friendships'\footnote{\url{https://www.facebook.com/notes/facebook-engineering/visualizing-friendships/469716398919}} where the authors studied interactions inside the Facebook social network, or~\cite{RattiSobolevskyCalabreseAndrisReadesMartinoClaxtonStrogatz10} where the subject of analysis are phone calls. We can see that even when there is tecnnology-mediated communication, the geography seems to be an important driver.
 
 It is interesting to note that some models \cite{robles05} use the
 concept of stigmergy, that is, interaction using the environment, to
@@ -117,10 +119,11 @@ accessed from any language.
 
 Some other web-based \emph{repos} do have many of the characteristics, and,
 besides, are based in free software themselves, like
-Gitorious. However, the number of users of these repositories is quite
-small compared to GitHub, which has become the tool of choice for
-FLOSS developers. That is why GitHub was chosen, apart from the
-availability of tools to mine profile information. 
+Gitorious\footnote{\url{http://gitorious.org/}}, SourceForge\footnote{\url{http://sourceforge.net/}}, Google Code\footnote{\url{http://code.google.com/}}, just to name a few of them. However the number (and the activity) of users of these repositories is quite small compared to GitHub, which has become the tool of choice for
+FLOSS developers. That is why GitHub was chosen, apart from the availability of tools to mine profile information: it provides an API that allows us to study things in an easier way. 
+Notice also that all the projects in GitHub can not be considered FLOSS as we can see at: `Study: Most projects on GitHub not open source licensed.'\footnote{http://www.theregister.co.uk/2013/04/18/github\_licensing\_study/}, `Licensing of Software on Github:
+A Quantitative Analysis'\footnote{\url{http://www.softwarefreedom.org/resources/2013/lcs-slides-aaronw/}}. %If this fits well here I'll try to improve references.
+Nevertheless, people seems to be following the web culture where sharing and broadcasting are the usual ways of relation and they are not paying attention to licensing issues.
 
 The \href{https://github.com/paulmillr/top-github-users}{tool used initially, by Paul
 Miller} was
@@ -180,7 +183,8 @@ Twitter from my {\tt @jjmerelo} account.
 \label{sec:res}
 
 We reduced the search to the 20 most populated provinces in Spain, for
-which appropriate search strings and filters were created. All data
+which appropriate search strings and filters were created\footnote{Population data was obtained fromt the National Statistics
+  Institute \url{http://www.ine.es/}}. All data
 was downloaded during January 2015, and is available from the already
 mentioned \emph{repo}.  Aggregate data for these 20 provinces is shown in
 table \ref{tab:data}.
@@ -432,6 +436,6 @@ the data used to create it can be downloaded from
 
 
 \bibliographystyle{plain}
-\bibliography{geneura,rankings}
+\bibliography{geneura,rankings,blogs}
 
 \end{document}
