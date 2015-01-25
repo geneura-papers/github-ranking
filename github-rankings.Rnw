@@ -20,6 +20,7 @@ load(".RData")
 }
 
 \begin{document}
+%\SweaveOpts{concordance=TRUE}
 \date{}
 
 \maketitle
@@ -28,8 +29,8 @@ load(".RData")
   Creating rankings might seem like a vain exercise in belly-button
   gazing, even more so for people so unlike that kind of things as
   programmers. However, in this paper we will try to prove how
-  creating city (or province) based rankings in Spain has led to all
-  kind of interesting effects, including increased productivity and
+  creating city (or province) based rankings in Spain has led to   
+  all kind of interesting effects, including increased productivity and
   community building.
 \end{abstract}
 
@@ -86,8 +87,8 @@ conclusions.
 
 \section{State of the art}
 
-Geographically based community metrics do not seem to have arisen a
-lot of interest in the FLOSS metrics \cite{herraiz2009flossmetrics} community. Most efforts seem to
+Geographically based community metrics have had some atention in the last years~\cite{BarahonaRoblesAndradasGhosh08,TakhteyevHilts10,EngelhardtFreytagSchulz13} but they do not seem to have arisen a
+lot of interest in the FLOSS metrics~\cite{herraiz2009flossmetrics} community. Most efforts seem to
 be focused in creating tools for actually measuring repositories for
 activity; for instance, Laura Arjona describes the {\em Debian
   Contributors} tool in \cite{arjona:debian} whose results are dumped
@@ -140,8 +141,7 @@ Some other web-based \emph{repos} do have many of the characteristics, and,
 besides, are based in free software themselves, like
 Gitorious\footnote{\url{http://gitorious.org/}}, SourceForge\footnote{\url{http://sourceforge.net/}}, Google Code\footnote{\url{http://code.google.com/}}, just to name a few of them. However the number (and the activity) of users of these repositories is quite small compared to GitHub, which has become the tool of choice for
 FLOSS developers. That is why GitHub was chosen, apart from the availability of tools to mine profile information: it provides an API that allows us to study things in an easier way. 
-Notice also that all the projects in GitHub can not be considered FLOSS as we can see at: `Study: Most projects on GitHub not open source licensed.'\footnote{http://www.theregister.co.uk/2013/04/18/github\_licensing\_study/}, `Licensing of Software on Github:
-A Quantitative Analysis'\footnote{\url{http://www.softwarefreedom.org/resources/2013/lcs-slides-aaronw/}}. %If this fits well here I'll try to improve references.
+Notice also that all the projects in GitHub can not be considered FLOSS as we can see at~\cite{Williamson13}.
 Nevertheless, people seems to be following the web culture where sharing and broadcasting are the usual ways of relation and they are not paying attention to licensing issues.
 
 The \href{https://github.com/paulmillr/top-github-users}{tool used initially, by Paul
