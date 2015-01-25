@@ -20,6 +20,7 @@ load(".RData")
 }
 
 \begin{document}
+\SweaveOpts{concordance=TRUE}
 \date{}
 
 \maketitle
