@@ -158,7 +158,7 @@ called from several scripts.
 Our intention was to look for users in a particular location, that is,
 to limit them not by minimum number of users but for the location
 declared in their profiles. Every run of the program required 10 API
-requests which is limited to 20 per hour, so we modified it so that it
+requests which is limited to 20 per hour, so we modified it \cite{Merelo2015} so that it
 used authenticated requests, besides. Finally, we had to rearrange the
 whole code so that it counted the number of stars and could be
 filtered according to regular expressions, since the country a city or
@@ -305,7 +305,7 @@ represented by the Gini index, which is shown in table
 %
 \begin{figure}[htb]
   \centering
-<<lorenz, echo=FALSE, fig.height=6, fig.width=8>>=
+<<lorenz, echo=FALSE, fig.height=4, fig.width=8>>=
 ggplot()+geom_point(data=barcelona.data, aes(x=seq_along(contributions)/length(contributions), y=cumsum(sort(contributions))/sum(contributions),color='BCN'))+geom_point(data=zaragoza.data, aes(x=seq_along(contributions)/length(contributions), y=cumsum(sort(contributions))/sum(contributions),color='ZGZ'))+geom_point(data=madrid.data, aes(x=seq_along(contributions)/length(contributions), y=cumsum(sort(contributions))/sum(contributions),color='MAD'))+geom_point(data=granada.data, aes(x=seq_along(contributions)/length(contributions), y=cumsum(sort(contributions))/sum(contributions),color='GRX'))+geom_point(data=sevilla.data, aes(x=seq_along(contributions)/length(contributions), y=cumsum(sort(contributions))/sum(contributions),color='SVQ'))+geom_point(data=valencia.data, aes(x=seq_along(contributions)/length(contributions), y=cumsum(sort(contributions))/sum(contributions),color='VLC'))+xlab('rank')+ylab('contributions')+labs(color="City")
 @
 \caption{Lorenz graph, that is, accumulated number of contributions vs rank for the top 6 provinces in number of users and contributions: Madrid, Barcelona, Valencia, Granada, Sevilla, Zaragoza}
@@ -351,7 +351,7 @@ number of users.
 %
 \begin{figure}[htb]
   \centering
-<<avg, echo=FALSE, fig.height=6, fig.width=8>>=
+<<avg, echo=FALSE, fig.height=4, fig.width=8>>=
 ggplot(top20.data.byavgcontrib,aes(x=province,y=avgcontrib)) + geom_bar(stat='identity')+coord_flip()+xlab("Contributions/users")
 @
 \caption{Average number of contributions, sorted from top to bottom,
@@ -376,7 +376,7 @@ tests, including Granada.
 %
 \begin{figure}[htb]
   \centering
-<<impact, echo=FALSE, fig.height=6, fig.width=8>>=
+<<impact, echo=FALSE, fig.height=4, fig.width=8>>=
 ggplot() + geom_line(data=malaga.evol.data, aes(x=seq_along(users), y=users,color='AGP')) +  geom_line(data=sevilla.evol.data, aes(x=seq_along(users),y=users,color='SVQ'))+  geom_line(data=granada.evol.data, aes(x=seq_along(users),y=users,color='GRX')) + xlab("Sequence")+labs(color="City")
 @
 \caption{Number of users in each ranking; every point indicates simply
