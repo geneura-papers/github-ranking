@@ -1,21 +1,20 @@
-\documentclass{winnower}
+\documentclass{article}
 
 \usepackage[utf8]{inputenc}
 \usepackage{hyperref}
-
 
 <<setup, cache=FALSE,echo=FALSE>>=
 library("ggplot2")
 load(".RData")
 @ 
 
-\title{GitHub rankings and its impact on the local free software
-  development community}
+\title{Measuring the local GitHub developer community}
 \author{JJ Merelo$^{1,2,3}$\thanks{Corresponding author. He can be
     reached at {\tt jmerelo@ugr.es} or at the
     \href{https://github.com/geneura-papers/github-ranking/issues}{issues
-      section} of the repo for this paper}, Israel Blancas$^1$, M. G. Arenas$^{1,3}$,
-  Fernando Tricas $^4$, José Antonio Vacas\\
+      section} of the repo for this paper} \and Nuria Rico$^{1,2}$
+  \and Israel Blancas$^1$ \and M. G. Arenas$^{1,3}$ \and
+  Fernando Tricas $^4$ \and José Antonio Vacas\\
   $^1$University of Granada, Spain\\
   $^2$Free Software Office\\
   $^3$Geneura Team\\
@@ -34,7 +33,11 @@ load(".RData")
   programmers. However, in this paper we will try to prove how
   creating city (or province) based rankings in Spain has led to   
   all kind of interesting effects, including increased productivity and
-  community building.
+  community building. We describe the methodology we have used to
+  search for programmers residing in a particular province  focusing
+  on those where most population is concentrated and apply different
+  measures to show how these communities differ in structure, number
+  and productivity. 
 \end{abstract}
 
 \section{Introduction}
@@ -160,15 +163,17 @@ called from several scripts.
 Our intention was to look for users in a particular location, that is,
 to limit them not by minimum number of users but for the location
 declared in their profiles. Every run of the program required 10 API
-requests which is limited to 20 per hour, so we modified it \cite{Merelo2015} so that it
-used authenticated requests, besides. Finally, we had to rearrange the
+requests which are limited to 20 per hour, so our first modification \cite{Merelo2015}  was to ochange it so that it
+used authenticated requests. Finally, we had to rearrange the
 whole code so that it counted the number of stars and could be
 filtered according to regular expressions, since the country a city or
 province is might be ambiguous (you know Toledo, Ohio, but there is
-also a Toledo in Spain). Besides, Markdown handling was kind of clumsy
-so it was moved to a template-based solution.
+also a Toledo in Spain); Markdown handling was hard-coded into the program 
+so it was moved to a template-based solution. The resulting solution
+\cite{Merelo2015} kept the same license and included also a few
+additional tools for data processing. 
 
-One of the main problem we found in Spain was the ambiguity of the
+One of the main problem we found in Spain was the different forms of the
 province name. Besides the fact that people write it in any of the
 official languages (Spanish and, in some cases, national languages
 like Basque or Catalan) and, well, sometimes with typos (with or
@@ -438,7 +443,7 @@ the data used to create it can be downloaded from
 \href{http://geneura.wordpress.com}{GeNeura Team}. 
   
 
-\bibliographystyle{abbrvnat}
+\bibliographystyle{alpha}
 \bibliography{geneura,rankings,blogs}
 
 \end{document}
