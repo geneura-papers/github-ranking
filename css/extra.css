@@ -1,3 +1,5 @@
 .bkg { background-color:rgba(0,40,0,0.5);
          padding: 20px;
          border-radius: 30px}
+.reveal li { font-size:1.75em }
+.reveal li.credits { font-size:1.2em }
