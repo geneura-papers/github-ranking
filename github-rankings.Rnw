@@ -22,6 +22,7 @@ load(".RData")
 }
 
 \begin{document}
+\SweaveOpts{concordance=TRUE}
 %\SweaveOpts{concordance=TRUE}
 \date{}
 
@@ -111,6 +112,7 @@ of new software projects. In fact, this seems to be what has happened
 in the community (or communities) under observation: the mere creation of
 a document that mentions many different users acts as a substrate that
 allows the creation and growth of the community through the stigmergy paradigm.
+For example, e-mail social networks are used by Bird et al. \cite{Bird08Latent} to study the social structure in big Open Source projects. They shown that different subcommunities of participants can be formed and detected, with statistically significant levels of modularity and that these social networks are mainly built around {\em products} of each project (APIs, bug fixes, etc.). Finally, they proved that pairs of members in the mailing lists social networks have more modified files in common than pairs from different communities.
 
 Next we will briefly explain the tool that was designed to search for
 geographically based GitHub users.
