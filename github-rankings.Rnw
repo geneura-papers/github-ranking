@@ -101,7 +101,8 @@ activity; for instance, Laura Arjona describes the {\em Debian
   Contributors} tool in \cite{arjona:debian} whose results are dumped
 to a website that includes information on the projects that every user
 has contributed and some other data such as how users are identified
-in the databases. 
+in the databases. Other authors use existent online development communities, such as Sourceforge \cite{Xu05topologicalSourceforge,Hahn08PriorTies}, to perform statistical analysis on the social structure of the projects. 
+%TODO hay muchos artículos que usan Sourceforge como fuente de datos, deberíamos indicar las ventajas de usar Github FERGU
 However, geography seems to be relevant in human interactions even when we are in Internet, where one could expect this factor to be less important. See, for example, `Visualizing Friendships'\footnote{\url{https://www.facebook.com/notes/facebook-engineering/visualizing-friendships/469716398919}} where the authors studied interactions inside the Facebook social network, or~\cite{RattiSobolevskyCalabreseAndrisReadesMartinoClaxtonStrogatz10} where the subject of analysis are phone calls. We can see that even when there is technology-mediated communication, the geography seems to be an important driver.
 
 It is interesting to note that some models \cite{robles05} use the
@@ -112,7 +113,7 @@ of new software projects. In fact, this seems to be what has happened
 in the community (or communities) under observation: the mere creation of
 a document that mentions many different users acts as a substrate that
 allows the creation and growth of the community through the stigmergy paradigm.
-For example, e-mail social networks are used by Bird et al. \cite{Bird08Latent} to study the social structure in big Open Source projects. They shown that different subcommunities of participants can be formed and detected, with statistically significant levels of modularity and that these social networks are mainly built around {\em products} of each project (APIs, bug fixes, etc.). Finally, they proved that pairs of members in the mailing lists social networks have more modified files in common than pairs from different communities.
+For example, e-mail social networks are used by Sowe et al. \cite{Sowe06knowledge} to identify knowledge brokers using the Debian mailing lists. This technique was also used  by Bird et al. \cite{Bird08Latent} to study the social structure in other big Open Source projects. They shown that different subcommunities of participants can be formed and detected, with statistically significant levels of modularity and that these social networks are mainly built around {\em products} of each project (APIs, bug fixes, etc.). Finally, they proved that pairs of members in the mailing lists social networks have more modified files in common than pairs from different communities. 
 
 Next we will briefly explain the tool that was designed to search for
 geographically based GitHub users.
