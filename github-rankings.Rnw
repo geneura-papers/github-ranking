@@ -8,16 +8,16 @@ library("ggplot2")
 load(".RData")
 @ 
 
-\title{Measuring the local GitHub developer community}
-\author{JJ Merelo$^{1,2,3}$\thanks{Corresponding author. He can be
+\title{Measuring local GitHub developer communities}
+\author{J.J. Merelo$^{1,2,3}$\thanks{Corresponding author. He can be
     reached at {\tt jmerelo@ugr.es} or at the
     \href{https://github.com/geneura-papers/github-ranking/issues}{issues
       section} of the repo for this paper} \and Nuria Rico$^{1,2}$
   \and Israel Blancas$^1$ \and M. G. Arenas$^{1,3}$ \and
   Fernando Tricas $^4$ \and José Antonio Vacas\\
   $^1$University of Granada, Spain\\
-  $^2$Free Software Office\\
-  $^3$Geneura Team\\
+  $^2$Free Software Office, University of Granada\\
+  $^3$GeNeura Team\\
   $^4$University of Zaragoza, Spain
 }
 
