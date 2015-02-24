@@ -1,0 +1,79 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{hyperref}
+
+<<setup, cache=FALSE,echo=FALSE>>=
+library("ggplot2")
+load(".RData")
+@ 
+
+\title{Does geography influence local GitHub developer communities}
+\author{J.J. Merelo$^{1,2,3}$\thanks{Corresponding author. He can be
+    reached at {\tt jmerelo@ugr.es} or at the
+    \href{https://github.com/geneura-papers/github-ranking/issues}{issues
+      section} of the repo for this paper} %\and Nuria Rico$^{1,2}$
+  %\and Israel Blancas$^1$ \and M. G. Arenas$^{1,3}$ \and
+  Fernando Tricas $^4$ %\and José Antonio Vacas\\
+  $^1$University of Granada, Spain\\
+  $^2$Free Software Office, University of Granada\\
+  $^3$GeNeura Team\\
+  $^4$University of Zaragoza, Spain
+}
+
+\begin{document}
+\SweaveOpts{concordance=TRUE}
+\date{}
+
+\maketitle
+
+\section{Abstract}
+  We have been stuying internet communities at a local scale for some
+  parts of the last ten years. Our work started with the analysis of social
+  networks and community detection (and other measures) among
+  bloggers~\cite{blogtalk,PrietoMereloPrietoTricas07,PrietoTricasMereloMoraPrieto08}.
+  Recently we have started to measure communities of developres, creating
+  GitHub rankings for many Spanish cities.
+ In our experience, the creation of these kind of studies tends to induce
+ some modifications in the communities themselves: self-awareness induces
+ as we have seen in our previous work: creating city (or province) based
+ rankings in Spain has led to all kind of interesting effects, including
+ increased productivity and community building. 
+ The reason for using cities and/or provices was related to the
+ availability of an easy to manage way to categorize people and it is
+ usually an easier way to `spread the word' 
+ We describe the methodology we have used to search for programmers
+ residing in a particular province  focusing on those where most population
+ is concentrated and apply different measures to show how these communities
+ differ in structure, number and productivity. 
+
+On the other side, previous work (mainly in other kinds of human
+interaction) suggest that the location has a role even when we are talking
+about tecnollogy-mediated communication.  See, for example, `Visualizing
+Friendships'\footnote{\url{https://www.facebook.com/notes/facebook-engineering/visualizing-friendships/469716398919}}
+where the authors studied interactions inside the Facebook social network,
+or~\cite{RattiSobolevskyCalabreseAndrisReadesMartinoClaxtonStrogatz10}
+where the subject of analysis are phone calls. We can see that even when
+there is technology-mediated communication, the geography seems to be an
+important driver.
+
+The location of software developers (mainly in Free/Libre/Open Source,
+FLOSS) has also been considered~\cite{BarahonaRoblesAndradasGhosh08,TakhteyevHilts10,EngelhardtFreytagSchulz13}
+but we can see that these questions should be the focus of more studies
+like this, because the main driver of that previous work seems to be the
+metrics about productivity and other similar things.
+
+Our plan is to construct the social network of the developers included in
+the top and with these data we will try to discover trends and
+configurations: does the centrality of the network correspond to the
+geographycal one? Do the developers follow the physical constraints or they
+are more open to the relations with not so near developers? They are
+supposed to be more fluent with technology and the barriers should be
+perceived in a different way.
+
+
+
+\bibliographystyle{alpha}
+\bibliography{geneura,rankings,blogs}
+
+\end{document}
