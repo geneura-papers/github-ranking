@@ -8,24 +8,15 @@ library("ggplot2")
 load(".RData")
 @ 
 
-\title{Does geography influence local GitHub developer communities?}
-\author{J.J. Merelo$^{1,2,3}$\thanks{Corresponding author. He can be
-    reached at {\tt jmerelo@ugr.es} or at the
-    \href{https://github.com/geneura-papers/github-ranking/issues}{issues
-      section} of the repo for this paper} %\and Nuria Rico$^{1,2}$
-  %\and Israel Blancas$^1$ \and M. G. Arenas$^{1,3}$ \and
-  Fernando Tricas $^4$ %\and José Antonio Vacas\\
-  $^1$University of Granada, Spain\\
-  $^2$Free Software Office, University of Granada\\
-  $^3$GeNeura Team\\
-  $^4$University of Zaragoza, Spain
-}
-
 \begin{document}
 
-\date{}
+\section{Does geography influence local GitHub developer communities?}
+\begin{center}
+J.J. Merelo  Fernando Tricas \\
+University of Granada, Spain / University of Zaragoza, Spain
+\end{center}
+}
 
-\maketitle
 
 \section{Abstract}
   We have been stuying Internet-based communities at a local scale for some
@@ -60,7 +51,7 @@ important driver.
 
 \begin{figure}[htb]
   \centering
-<<zipf, echo=FALSE, out.width='.49\\linewidth',fig.height=6, fig.subcap=c('Contributions', 'Users'),>>=
+<<zipf, echo=FALSE, out.width='.49\\linewidth', fig.height=6, fig.subcap=c('Contributions', 'Users')>>=
 ggplot()+geom_point(data=barcelona.data, aes(x=log(seq_along(contributions)), y= log10(contributions),color='BCN')) +geom_point(data=zaragoza.data,aes(y=log10(contributions), x=log(seq_along(contributions)),color='ZGZ'))+geom_point(data=madrid.data, aes(x=log(seq_along(contributions)), y= log10(contributions),color='MAD')) +geom_point(data=granada.data,aes(y=log10(contributions), x=log(seq_along(contributions)),color='GRX'))+geom_point(data=sevilla.data, aes(x=log(seq_along(contributions)), y= log10(contributions),color='SVQ')) +geom_point(data=valencia.data,aes(y=log10(contributions), x=log(seq_along(contributions)),color='VLC'))+labs(color="City")+xlab("Rank")
 @
 \caption{Zipf graph, rank vs. number of contributions for the top 6
