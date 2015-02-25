@@ -10,68 +10,56 @@ load(".RData")
 
 \begin{document}
 
-\section{Does geography influence local GitHub developer communities?}
+\section*{Does geography influence developer communities?}
 \begin{center}
-J.J. Merelo  Fernando Tricas \\
+J.J. Merelo, Fernando Tricas \\
 University of Granada, Spain / University of Zaragoza, Spain
 \end{center}
-}
-
 
 \section{Abstract}
-  We have been stuying Internet-based communities at a local scale for some
-  parts of the last ten years. Our work started with the analysis of social
+%  We have been stuying Internet-based communities at a local scale for some
+%  parts of the last ten years. 
+  Our work started with the analysis of social
   networks and communities  among
-  bloggers~\cite{blogtalk,PrietoMereloPrietoTricas07,weblogs-JNCA}.
-  Recently we have started to study communities of developres, creating
-  GitHub rankings for many Spanish cities \cite{10.15200/winn.142251.14740}.
- In our experience, the occurrence of these kind of studies tends to induce
- some modifications in the communities themselves: self-awareness
- induces %induces what? - JJ
- as we have seen in our previous work: creating city (or province) based
+  bloggers~\cite{weblogs-JNCA}; we now study communities of developres, creating
+  GitHub rankings for many Spanish cities
+  \cite{10.15200/winn.142251.14740}. These studies tends to induce
+ some modifications in the communities themselves: 
+ %self-awareness
+ %induces %induces what? - JJ
+ %as we have seen in our previous work:
+ creating city (or province) based
  rankings in Spain has led to all kind of interesting effects, including
  increased productivity and community building. 
- The reason for using cities and/or provices was related to the
- availability of an easy to manage way to categorize people and it is
- usually an easier way to `spread the word' 
+ %% The reason for using cities and/or provices was related to the
+ %% availability of an easy to manage way to categorize people and it is
+ %% usually an easier way to `spread the word' 
  We describe the methodology we have used to search for programmers
- residing in a particular province  focusing on those where most population
- is concentrated and apply different measures to show how these communities
+ residing in a particular province  
+ %focusing on those where most population
+ %is concentrated 
+ and apply different measures to show how these communities
  differ in structure, number and productivity. 
-
-On the other side, previous work (mainly in other venues of human
+%
+ Previous work (mainly in other venues of human
 interaction) suggest that the location has a role even when we are talking
-about tecnollogy-mediated communication.  See, for example, `Visualizing
-Friendships'\footnote{\url{https://www.facebook.com/notes/facebook-engineering/visualizing-friendships/469716398919}}
-where the authors studied interactions inside the Facebook social network,
-or~\cite{RattiSobolevskyCalabreseAndrisReadesMartinoClaxtonStrogatz10}
-where the subject of analysis are phone calls. We can see that even when
-there is technology-mediated communication, the geography seems to be an
-important driver.
-
+about technology-mediated communication.  
+%
 \begin{figure}[htb]
   \centering
-<<zipf, echo=FALSE, out.width='.49\\linewidth', fig.height=6, fig.subcap=c('Contributions', 'Users')>>=
+<<zipf, echo=FALSE, out.width='.49\\linewidth', fig.height=2, fig.subcap=c('Contributions', 'Users')>>=
 ggplot()+geom_point(data=barcelona.data, aes(x=log(seq_along(contributions)), y= log10(contributions),color='BCN')) +geom_point(data=zaragoza.data,aes(y=log10(contributions), x=log(seq_along(contributions)),color='ZGZ'))+geom_point(data=madrid.data, aes(x=log(seq_along(contributions)), y= log10(contributions),color='MAD')) +geom_point(data=granada.data,aes(y=log10(contributions), x=log(seq_along(contributions)),color='GRX'))+geom_point(data=sevilla.data, aes(x=log(seq_along(contributions)), y= log10(contributions),color='SVQ')) +geom_point(data=valencia.data,aes(y=log10(contributions), x=log(seq_along(contributions)),color='VLC'))+labs(color="City")+xlab("Rank")
 @
-\caption{Zipf graph, rank vs. number of contributions for the top 6
-  provinces in number of users and contributions: Madrid, Barcelona,
-  Valencia, Granada, Sevilla, Zaragoza. Both axes are logarithmic,
-  showing, in most cases, that the distribution of contributions
-  follows Zipf's law. }
+%\caption{Zipf graph, rank vs. number of contributions for the top provinces. }
 \label{fig:zipf}
 \end{figure}
 %
-The location of software developers (mainly in Free/Libre/Open Source,
-FLOSS) has also been considered~\cite{BarahonaRoblesAndradasGhosh08,TakhteyevHilts10,EngelhardtFreytagSchulz13}
-but we can see that these questions should be the focus of more studies
-like this, because the main driver of that previous work seems to be the
-metrics about productivity and other similar things. We already know,
+We already know,
 from the shape of the curves measuring things such as followers or
 contributions, which follow the power low usual in all social
 networks, \cite{10.15200/winn.142251.14740} that there is some kind of
-community structure as seen in Figure \ref{fig:zipf}. 
-
+community structure as seen in Figure \ref{fig:zipf}.
+%
 Our plan is to construct the social network of the developers included in
 the top and with these data we will try to discover trends and
 configurations: does the centrality of the network correspond to the
