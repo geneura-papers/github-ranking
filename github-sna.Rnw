@@ -44,6 +44,7 @@ J.J. Merelo, Fernando Tricas -- Univ. of Granada / Univ. of Zaragoza, Spain
  Previous work (mainly in other venues of human
 interaction) suggest that the location has a role even when we are talking
 about technology-mediated communication.  
+
 %
 \begin{wrapfigure}{r}{0.5\textwidth}
   \centering
@@ -56,7 +57,7 @@ ggplot()+geom_point(data=barcelona.data, aes(x=log(seq_along(contributions)), y=
 %
 We already know,
 from the shape of the curves measuring things such as followers or
-contributions, which follow the power low usual in all social
+contributions, which follow the power law usual in all social
 networks, \cite{10.15200/winn.142251.14740} that there is some kind of
 community structure as seen in Figure \ref{fig:zipf}.
 %
