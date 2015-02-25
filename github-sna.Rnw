@@ -47,7 +47,7 @@ about technology-mediated communication.
 %
 \begin{wrapfigure}{r}{0.5\textwidth}
   \centering
-<<zipf, echo=FALSE, out.width='.95\\linewidth', fig.height=4, fig.subcap=c('Contributions', 'Users')>>=
+<<zipf, echo=FALSE, out.width='.99\\linewidth', fig.height=5, fig.subcap=c('Contributions', 'Users')>>=
 ggplot()+geom_point(data=barcelona.data, aes(x=log(seq_along(contributions)), y= log10(contributions),color='BCN')) +geom_point(data=zaragoza.data,aes(y=log10(contributions), x=log(seq_along(contributions)),color='ZGZ'))+geom_point(data=madrid.data, aes(x=log(seq_along(contributions)), y= log10(contributions),color='MAD')) +geom_point(data=granada.data,aes(y=log10(contributions), x=log(seq_along(contributions)),color='GRX'))+geom_point(data=sevilla.data, aes(x=log(seq_along(contributions)), y= log10(contributions),color='SVQ')) +geom_point(data=valencia.data,aes(y=log10(contributions), x=log(seq_along(contributions)),color='VLC'))+labs(color="City")+xlab("Rank")
 @
 %\caption{Zipf graph, rank vs. number of contributions for the top provinces. }
