@@ -64,7 +64,7 @@ community structure as seen in Figure \ref{fig:zipf}.
 Our plan is to construct the social network of the developers included in
 the top and with these data we will try to discover trends and
 configurations: does the centrality of the network correspond to the
-geographycal one? Do the developers follow the physical constraints or they
+geographical one? Do the developers follow the physical constraints or they
 are more open to the relations with not so near developers? They are
 supposed to be more fluent with technology and the barriers should be
 perceived in a different way.
