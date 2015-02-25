@@ -23,7 +23,7 @@ J.J. Merelo, Fernando Tricas -- Univ. of Granada / Univ. of Zaragoza, Spain
   networks and communities  among
   bloggers~\cite{weblogs-JNCA}; we now study communities of developers, creating
   GitHub rankings for many Spanish cities
-  \cite{10.15200/winn.142251.14740}. These studies tends to induce
+  \cite{10.15200/winn.142251.14740}. These studies tend to induce
  some modifications in the communities themselves: 
  %self-awareness
  %induces %induces what? - JJ
