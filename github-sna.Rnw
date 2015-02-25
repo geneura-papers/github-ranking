@@ -13,8 +13,7 @@ load(".RData")
 
 \section*{Does geography influence developer communities?}
 \begin{center}
-J.J. Merelo, Fernando Tricas \\
-University of Granada, Spain / University of Zaragoza, Spain
+J.J. Merelo, Fernando Tricas -- Univ. of Granada / Univ. of Zaragoza, Spain
 \end{center}
 
 \section{Abstract}
