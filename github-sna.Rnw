@@ -2,6 +2,7 @@
 
 \usepackage[utf8]{inputenc}
 \usepackage{hyperref}
+\usepackage{wrapfig}
 
 <<setup, cache=FALSE,echo=FALSE>>=
 library("ggplot2")
@@ -45,14 +46,14 @@ University of Granada, Spain / University of Zaragoza, Spain
 interaction) suggest that the location has a role even when we are talking
 about technology-mediated communication.  
 %
-\begin{figure}[htb]
+\begin{wrapfigure}{r}{0.5\textwidth}
   \centering
-<<zipf, echo=FALSE, out.width='.49\\linewidth', fig.height=2, fig.subcap=c('Contributions', 'Users')>>=
+<<zipf, echo=FALSE, out.width='.95\\linewidth', fig.height=4, fig.subcap=c('Contributions', 'Users')>>=
 ggplot()+geom_point(data=barcelona.data, aes(x=log(seq_along(contributions)), y= log10(contributions),color='BCN')) +geom_point(data=zaragoza.data,aes(y=log10(contributions), x=log(seq_along(contributions)),color='ZGZ'))+geom_point(data=madrid.data, aes(x=log(seq_along(contributions)), y= log10(contributions),color='MAD')) +geom_point(data=granada.data,aes(y=log10(contributions), x=log(seq_along(contributions)),color='GRX'))+geom_point(data=sevilla.data, aes(x=log(seq_along(contributions)), y= log10(contributions),color='SVQ')) +geom_point(data=valencia.data,aes(y=log10(contributions), x=log(seq_along(contributions)),color='VLC'))+labs(color="City")+xlab("Rank")
 @
 %\caption{Zipf graph, rank vs. number of contributions for the top provinces. }
 \label{fig:zipf}
-\end{figure}
+\end{wrapfigure}
 %
 We already know,
 from the shape of the curves measuring things such as followers or
