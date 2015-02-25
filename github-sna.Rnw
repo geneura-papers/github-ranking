@@ -2,7 +2,7 @@
 
 \usepackage[utf8]{inputenc}
 \usepackage{hyperref}
-\usepackage{wrapfigure}
+\usepackage{wrapfig}
 
 <<setup, cache=FALSE,echo=FALSE>>=
 library("ggplot2")
@@ -44,10 +44,11 @@ J.J. Merelo, Fernando Tricas -- Univ. of Granada / Univ. of Zaragoza, Spain
  Previous work (mainly in other venues of human
 interaction) suggest that the location has a role even when we are talking
 about technology-mediated communication.  
+
 %
 \begin{wrapfigure}{r}{0.5\textwidth}
   \centering
-<<zipf, echo=FALSE, out.width='.49\\linewidth', fig.height=2, fig.subcap=c('Contributions', 'Users')>>=
+<<zipf, echo=FALSE, out.width='.95\\linewidth', fig.height=4, fig.subcap=c('Contributions', 'Users')>>=
 ggplot()+geom_point(data=barcelona.data, aes(x=log(seq_along(contributions)), y= log10(contributions),color='BCN')) +geom_point(data=zaragoza.data,aes(y=log10(contributions), x=log(seq_along(contributions)),color='ZGZ'))+geom_point(data=madrid.data, aes(x=log(seq_along(contributions)), y= log10(contributions),color='MAD')) +geom_point(data=granada.data,aes(y=log10(contributions), x=log(seq_along(contributions)),color='GRX'))+geom_point(data=sevilla.data, aes(x=log(seq_along(contributions)), y= log10(contributions),color='SVQ')) +geom_point(data=valencia.data,aes(y=log10(contributions), x=log(seq_along(contributions)),color='VLC'))+labs(color="City")+xlab("Rank")
 @
 %\caption{Zipf graph, rank vs. number of contributions for the top provinces. }
@@ -56,7 +57,7 @@ ggplot()+geom_point(data=barcelona.data, aes(x=log(seq_along(contributions)), y=
 %
 We already know,
 from the shape of the curves measuring things such as followers or
-contributions, which follow the power low usual in all social
+contributions, which follow the power law usual in all social
 networks, \cite{10.15200/winn.142251.14740} that there is some kind of
 community structure as seen in Figure \ref{fig:zipf}.
 %
