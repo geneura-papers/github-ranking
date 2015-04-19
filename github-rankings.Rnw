@@ -1,30 +1,55 @@
-\documentclass{article}
+\documentclass[review]{elsarticle}
+\bibliographystyle{elsarticle-num}
 
 \usepackage[utf8]{inputenc}
 \usepackage{hyperref}
+
+
+\begin{document}
 
 <<setup, cache=FALSE,echo=FALSE>>=
 library("ggplot2")
 load(".RData")
 @ 
 
-\title{Measuring local GitHub developer communities in Spain}
-\author{J.J. Merelo$^{1,2,3}$\thanks{Corresponding author. He can be
-    reached at {\tt jmerelo@ugr.es} or at the
-    \href{https://github.com/geneura-papers/github-ranking/issues}{issues
-      section} of the repo for this paper} \and Nuria Rico$^{1,2}$
-  \and Israel Blancas$^1$ \and M. G. Arenas$^{1,3}$ \and
-  Fernando Tricas $^4$ \and José Antonio Vacas\\
-  $^1$University of Granada, Spain\\
-  $^2$Free Software Office, University of Granada\\
-  $^3$GeNeura Team\\
-  $^4$University of Zaragoza, Spain
-}
+\begin{frontmatter}
 
-\begin{document}
+\title{Measuring local GitHub developer communities in Spain}
+
+\author[ugr,geneura,osl]{J.J. Merelo\corref{cor1}}
+\ead{jmerelo@ugr.es}
+
+\author[osl,ugr]{Nuria Rico}
+\ead{nrico@ugr.es}
+
+\author[ugr]{Israel Blancas}
+\ead{iblancasa@gmail.com}
+
+\author[geneura,ugr]{M. G. Arenas}
+\ead{mgarenas@ugr.es}
+
+\author[unizar]{Fernando Tricas}
+\ead{ftricas@unizar.es}
+
+\author[cacharreo]{José Antonio Vacas}
+\ead{javacasm@gmail.com}
+
+\address[ugr]{University of Granada, Spain}
+\address[osl]{Free Software Office, University of Granada}
+\address[geneura]{GeNeura Team, \url{http://geneura.wordpress.com}
+\address[unizar]{University of Zaragoza, Spain}
+\address[cacharreo]{\url{http://elcacharreo.com}}
+
+
+\cortext[cor1]{Corresponding author. He can be
+    reached at his email address or at the
+    \href{https://github.com/geneura-papers/github-ranking/issues}{issues
+      section} of the repo for this paper}}
+      
+      
 \date{}
 
-\maketitle
+%\maketitle
 
 \begin{abstract}
   Creating rankings might seem like a vain exercise in belly-button
@@ -38,6 +63,12 @@ load(".RData")
   measures to show how these communities differ in structure, number
   and productivity. 
 \end{abstract}
+
+\begin{keyword}
+Free software, libre software, software engineering, software communities
+\end{keyword}
+
+\end{frontmatter}
 
 \section{Introduction}
 
