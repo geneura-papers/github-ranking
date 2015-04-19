@@ -8,7 +8,7 @@ library("ggplot2")
 load(".RData")
 @ 
 
-\title{Measuring local GitHub developer communities}
+\title{Measuring local GitHub developer communities in Spain}
 \author{J.J. Merelo$^{1,2,3}$\thanks{Corresponding author. He can be
     reached at {\tt jmerelo@ugr.es} or at the
     \href{https://github.com/geneura-papers/github-ranking/issues}{issues
@@ -22,8 +22,6 @@ load(".RData")
 }
 
 \begin{document}
-\SweaveOpts{concordance=TRUE}
-%\SweaveOpts{concordance=TRUE}
 \date{}
 
 \maketitle
