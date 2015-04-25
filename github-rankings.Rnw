@@ -9,7 +9,10 @@
 
 <<setup, cache=FALSE,echo=FALSE>>=
 library("ggplot2")
-load(".RData")
+library("RCurl") #To download stuff directly from the GitHub repo
+load(".RData") #I'll try to obsolete this to make everything clearer
+agg.top.Spain.evol.file <- getURL("https://raw.githubusercontent.com/JJ/top-github-users-data/master/data/processed/aggregated-top-Spain-evol.csv")
+agg.top.Spain.evol <- read.csv(text = agg.top.Spain.evol.file,sep=";")
 @ 
 
 \begin{frontmatter}
@@ -99,7 +102,18 @@ ended up with lots of data. And data begs for analysis, which we
 eventually started to do. And, along the way, we built a community of users that previously had not known each other. We discovered that
 the only fact that a census exists does not imply that there is a
 community, but it definitely helps. 
-We have had some experience with this kind of reactions in the past. In~\cite{blogtalk} we did some studies on social network analysis and other measures of the Spanish-speaking blogosphere. Then, the reactions were two fold: on one side, people showed big interest in the index in order to be listed there; some blog providers provided also data. On the other side, people that were expecting to appear in better positions were a bit angry about it\footnote{You can see some of the discussions and links -unfortunately most of them do not work- at: \url{http://www.blogalia.com/historias/7744} (in Spanish)}. Anyway we feel that self-consciousness is always a good thing and this work can serve as a driving force for more code sharing and increase relations among developers.
+We have had some experience with this kind of reactions in the
+past. In~\cite{blogtalk} we did some studies on social network
+analysis and other measures of the Spanish-speaking blogosphere. Then,
+the reactions were two fold: on one side, people showed big interest
+in the index in order to be listed there; some blog providers provided
+also data. On the other side, people that were expecting to appear in
+better positions were a bit angry about it\footnote{You can see some
+  of the discussions and links -unfortunately most of them do not
+  work- at: \url{http://www.blogalia.com/historias/7744} (in
+  Spanish)}. Anyway we feel that self-consciousness is always a good
+thing and this work can serve as a driving force for more code sharing
+and increase relations among developers. 
 
 In this paper, using the tool that we have created for searching for
 the users in particular cities or provinces, we will show how the
@@ -274,7 +288,13 @@ ggplot()+geom_point(data=barcelona.data, aes(x=log(seq_along(followers)), y=log1
 \end{figure}
 %
 
-So let us look at the distribution of contributions and users looking for an explanation of the dancing places in the ranking. A users and contributions vs. rank plot is shown in figure \ref{fig:zipf}; it shows different slopes which imply different distribution, but there is a clear indication that a Zipf-like distribution is taking place in all cases. So let us compute the Zipf exponent and objective, which we show in table \ref{tab:zipf}.
+So let us look at the distribution of contributions and users looking
+for an explanation of the dancing places in the ranking. A users and
+contributions vs. rank plot is shown in figure \ref{fig:zipf}; it
+shows different slopes which imply different distribution, but there
+is a clear indication that a Zipf-like distribution is taking place in
+all cases. So let us compute the Zipf exponent and objective, which we
+show in table \ref{tab:zipf}. 
 
 \begin{table}[htb]
   \centering
@@ -439,6 +459,37 @@ competitions taking place locally to scale up the rankings if there is
 a chance to do so. All hypothesis are equally valid lacking other
 evidence, but we would say that at least some increase will be due to
 the fact that the rankings exist. 
+
+% This stuff below is new
+If we look at the aggregated data, total number of users returned by
+API searches in Spain and how they evolve in time, we will get the
+picture shown in Figure \ref{fig:spain:evol}
+%
+\begin{figure}[htb]
+  \centering
+<<evol.Spain, echo=FALSE, fig.height=4, fig.width=8>>=
+ggplot(agg.top.Spain.evol,aes(x=users,y=contributions))+geom_line()+geom_point()
+@
+\caption{Number of contributions plotted against number of users for
+  different points in time, joined sequentially. Differences between
+  two points are usually one week. }
+\label{fig:spain:evol}
+\end{figure}
+%
+This steady increment might be due to several factors, once the effect
+of making API searches more complete is excluded. One of them,
+probably the most critical one, is people actually putting their city
+and country in the profile as weekly rankings are published. Another
+one is people making more contributions (and getting more followers)
+as their work becomes public and notorious. Of course, GitHub and open
+source are thriving communities so more developers will eventually
+release their work under a free license and new users will be
+incorporated to the pool users. The evidence of which one is the most
+important is mostly anecdotal, but from comments in social networks
+and our own experience it is quite clear that the publication of these
+rankings has had a positive impact in the open source contributions,
+at least quantitatively, in the whole.
+
 
 \section{Conclusions}
 
