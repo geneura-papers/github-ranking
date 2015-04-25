@@ -467,13 +467,23 @@ picture shown in Figure \ref{fig:spain:evol}
 %
 \begin{figure}[htb]
   \centering
-<<evol.Spain, echo=FALSE, fig.height=4, fig.width=8>>=
+<<evolSpain, echo=FALSE, fig.height=4, fig.width=8>>=
 ggplot(agg.top.Spain.evol,aes(x=users,y=contributions))+geom_line()+geom_point()
 @
 \caption{Number of contributions plotted against number of users for
   different points in time, joined sequentially. Differences between
   two points are usually one week. }
 \label{fig:spain:evol}
+\end{figure}
+%
+\begin{figure}[htb]
+  \centering
+<<evolSpainrel, echo=FALSE, fig.height=4, fig.width=8>>=
+ggplot(data=agg.top.Spain.evol,aes(x=row.names(agg.top.Spain.evol),y=contributions/users))+geom_point()+ xlab("Sequence")
+@
+\caption{Evolution of the number of contributions per user along time.
+Points were taken (roughtly) in consecutive weeks. }
+\label{fig:spain:evol:rel}
 \end{figure}
 %
 This steady increment might be due to several factors, once the effect
@@ -489,6 +499,21 @@ important is mostly anecdotal, but from comments in social networks
 and our own experience it is quite clear that the publication of these
 rankings has had a positive impact in the open source contributions,
 at least quantitatively, in the whole.
+
+A hint on what happens might
+be gleaned from Figure \ref{fig:spain:evol:rel}, which plots the
+evolution of the number of contributions along time. In fact, it
+remains more or less stable with a certain drop at the beginning due
+to the search returning users with a low number of contributions in
+big cities and the whole country, but remains stable afterwards, with
+a certain trend downwards. Since the number of users is actually
+increasing, this would indicate that the new users have a number of
+contributions, in fact a number of followers and stars too, that is
+close to the average or slightly lower. This does not allow us to say
+which contributions is more important: new users (who would have a low
+number of contributions) or existing users setting their name in the
+profile (which would be expected to have contributions distributed in
+the same way as existing users). 
 
 
 \section{Conclusions}
