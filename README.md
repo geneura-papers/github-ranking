@@ -1,5 +1,6 @@
 # github-ranking
-Paper for Flossmetrics on the use and impact of GitHub rankings
+
+Initially, paper for Flossmetrics on the use and impact of GitHub rankings. Eventually, paper for a journal on an Open Science basis. You want to collaborate, fork & pull request 
 
 ## Paper howto
 
